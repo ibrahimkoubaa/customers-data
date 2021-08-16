@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0px auto;
+    max-width: 1440px;
+    max-height: max-content;
+}
+
+.icon-search {
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    position: relative;
+    border: solid 2px #6F809E;
+    bottom: 31px;
+    left: 11px;
+}
+
+.icon-search::before {
+    content: "";
+    width: 10px;
+    height: 2px;
+    background-color: #6F809E;
+    border-radius: 3px;
+    position: absolute;
+    transform: rotate( 45deg);
+    left: 8px;
+    top: 12px;
+}
