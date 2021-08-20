@@ -7,8 +7,9 @@
 
 body {
     margin: 0px auto;
-    max-width: 1440px;
+    max-width: 1020px;
     max-height: max-content;
+    background-color: #FFFFFF;
 }
 
 .icon-search {
@@ -31,4 +32,180 @@ body {
     transform: rotate( 45deg);
     left: 8px;
     top: 12px;
+}
+
+.search-header {
+    background-color: #F4F7FC;
+    padding: 20px 0 0 30px;
+}
+
+.btn-search {
+    padding: 11px 0 12px 40px;
+    background-color: #DAE1EC;
+    border-radius: 4px;
+    border: none;
+    width: 300px;
+    color: #2E3B52;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+::placeholder {
+    color: #2E3B52;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.checkbox {
+    padding-left: 30px;
+}
+
+.description {
+    width: 18%
+}
+
+td {
+    padding: 12px 0 12px 0;
+}
+
+.delete {
+    padding-right: 30px;
+}
+
+.row-header {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #606F89;
+    background-color: #F4F7FC;
+}
+
+.customer-data {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #2E3B52;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+}
+
+.cercle {
+    background-color: #606F89;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+}
+
+.cercles {
+    display: flex;
+    gap: 5px;
+}
+
+.arrow-top {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #606F89;
+}
+
+.arrow-bottom {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #606F89;
+}
+
+.group-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding-left: 5px;
+}
+
+#cta-top,
+#cta-bottom {
+    border: none;
+    cursor: pointer;
+}
+
+.cta {
+    border: none;
+    cursor: pointer;
+}
+
+.divRate,
+.divBalance,
+.div,
+.divDeposit {
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-data1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #2E3B52;
+    background-color: #F4F7FC;
+}
+
+.cta-active {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #FFFFFF;
+    background: #0A65FF;
+    border-radius: 11px;
+    padding: 5px;
+    border: none;
+}
+
+.full-name {
+    color: #2E3B52;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.id {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #606F89;
+}
+
+.currency {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #606F89;
+}
+
+.min {
+    color: #E01A1A;
 }
