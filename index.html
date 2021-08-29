@@ -19,16 +19,16 @@
     </div>
     <table id="table">
         <thead>
-            <tr class="row-header">
+            <tr id="row-header">
                 <td class="checkbox"><input type="checkbox" id="checkbox"></td>
                 <td class="name">
                     <div class="group">
                         <span id="name">NAME</span>
                         <div class="group-cta">
-                            <button id="cta-top">
+                            <button class="cta-top">
                             <div class="arrow-top"></div>
                         </button>
-                            <button id="cta-bottom">
+                            <button class="cta-bottom">
                             <div class="arrow-bottom"></div>
                         </button>
                         </div>
@@ -53,7 +53,7 @@
                 </td>
                 <td class="delete">
                     <div class="cercles">
-                        <div class="cercle">💀</div>
+                        <div class="cercle"></div>
                         <div class="cercle"></div>
                         <div class="cercle"></div>
                     </div>
@@ -63,7 +63,35 @@
         <tbody id="content">
         </tbody>
     </table>
-    <script src="./script.js"></script>
+    <footer>
+        <div class="left-footer">
+            <span>active customers: 
+                <span id="active-cust" style="font-weight: bold;"></span>
+            <span id="length-array"></span>
+            </span>
+        </div>
+        <div class="right-footer">
+            <div class="selection-row">
+                <label for="rows-select">Rows per page:</label>
+                <select name="custumer" id="rows-select" style="border: none;">
+                    <option value=""></option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                </select>
+            </div>
+            <span>1-10 of 706</span>
+            <div class="group-btn">
+                <button><div class="arrow-left"></div></button>
+                <a href="./next-page.html"><button><div class="arrow-right"></div></button></a>
+            </div>
+        </div>
+    </footer>
+
 </body>
+<script src="./script.js"></script>
 
 </html>

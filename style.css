@@ -8,8 +8,8 @@
 body {
     margin: 0px auto;
     max-width: 1020px;
-    max-height: max-content;
     background-color: #FFFFFF;
+    border: #000000 solid 2px;
 }
 
 .icon-search {
@@ -73,6 +73,10 @@ table {
     width: 18%
 }
 
+tr:nth-child(even) {
+    background-color: #F4F7FC;
+}
+
 td {
     padding: 12px 0 12px 0;
 }
@@ -81,7 +85,7 @@ td {
     padding-right: 30px;
 }
 
-.row-header {
+#row-header {
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -135,14 +139,16 @@ td {
 .group-cta {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 2px;
     padding-left: 5px;
 }
 
 #cta-top,
+.cta-bottom,
 #cta-bottom {
     border: none;
     cursor: pointer;
+    background-color: #F4F7FC;
 }
 
 .cta {
@@ -190,7 +196,7 @@ td {
     line-height: 17px;
 }
 
-.id {
+.number {
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -208,4 +214,66 @@ td {
 
 .min {
     color: #E01A1A;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.left-footer {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #606F89;
+}
+
+.right-footer {
+    display: flex;
+    gap: 50px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #606F89;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #606F89;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #606F89;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.group-btn {
+    gap: 50px;
+    display: flex;
+}
+
+;
+.selectionRow {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #606F89;
 }
