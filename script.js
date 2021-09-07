@@ -373,16 +373,11 @@ function sortCustomersByStatus(customersToSort, statusOrder) {
     return customersToSort
 };
 
-function getActiveCustomers(allCustomers) {
+function getActiveCustomers(allCustomers,status) {
     customersDataLength.innerHTML = `/ ${allCustomers.length}`;
-    let result = [];
-    for (let i = 0; i < allCustomers.length; i++) {
-        if (allCustomers[i].status === "active") {
-            result.push([i].status)
-        }
-        activecustomers.innerText = 0;
-    }
-    activecustomers.innerText = result.length
+  activecustomers.innerText = 0;
+   activecustomers.innerText= allCustomers.filter(customer => customer.status === status).length;
+            
 };
 
 function removeCustomers(sourceOfCustomers, customerToRemove) {
@@ -401,7 +396,7 @@ function renderCustomers(customersToRender) {
         let row = createNewCustomer(customer);
         tbody.append(row);
     });
-    getActiveCustomers(customersNameSorted);
+    getActiveCustomers(customersNameSorted,'active');
     let numOfRowsPerPage=(currentPage + 1) * NumRows;
     rowsPerPage.innerHTML = `${currentPage * NumRows}  - ${numOfRowsPerPage} of ${customersNameSorted.length}`;
 };
