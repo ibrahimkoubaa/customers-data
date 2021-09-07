@@ -401,9 +401,9 @@ function renderCustomers(customersToRender) {
         let row = createNewCustomer(customer);
         tbody.append(row);
     });
-    getActiveCustomers(displayRows);
+    getActiveCustomers(customersNameSorted);
     let numOfRowsPerPage=(currentPage + 1) * NumRows;
-    rowsPerPage.innerHTML = `${currentPage * NumRows} c - ${numOfRowsPerPage} of al${customersNameSorted.length}`;
+    rowsPerPage.innerHTML = `${currentPage * NumRows}  - ${numOfRowsPerPage} of ${customersNameSorted.length}`;
 };
 
 inputSearch.addEventListener('keyup', () => renderCustomers(customersData));
