@@ -1,5 +1,5 @@
 let customersData = [{
-    name: "1-Ibrahim kouxbaa",
+    name: "Ibrahim kouxbaa",
     id: 122156785648,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
@@ -9,7 +9,7 @@ let customersData = [{
     status: "active"
 
 }, {
-    name: "2-Ibrahim koubaa",
+    name: "Ibrahim koubaa",
     id: 122156748,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
@@ -19,7 +19,7 @@ let customersData = [{
     status: "active"
 
 }, {
-    name: "3-Soukainax udouh",
+    name: "Soukainax udouh",
     id: 57645458755,
     description: "Lorem ibra dolor sit amet, consectetur...",
     rate: "80.00",
@@ -28,7 +28,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "4-Ahmed Oudwouh",
+    name: "Ahmed Oudwouh",
     id: 5754555424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -37,7 +37,7 @@ let customersData = [{
     deposit: "500.00",
     status: "active"
 }, {
-    name: "5-Saad Koxubaa",
+    name: "Saad Koxubaa",
     id: 125656448,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
@@ -46,7 +46,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "6-Abdellaxxh Oudouh",
+    name: "Abdellaxxh Oudouh",
     id: 576448755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -55,7 +55,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "7-Khalid Ouwdouh",
+    name: "Khalid Ouwdouh",
     id: 575456424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -64,7 +64,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "8-Youwness Oudouh",
+    name: "Youwness Oudouh",
     id: 576454678755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -73,7 +73,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "9-Mounia Mekxxrane",
+    name: "Mounia Mekxxrane",
     id: 57545424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -82,7 +82,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "10-Abdelhadi Oudxxouh",
+    name: "Abdelhadi Oudxxouh",
     id: 576658755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -91,7 +91,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "11-Azouz Mexxwkrane",
+    name: "Azouz Mexxwkrane",
     id: 5754524574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -100,7 +100,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "12-Ibrahim koxxubaa",
+    name: "Ibrahim koxxubaa",
     id: 122156748,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
@@ -110,7 +110,7 @@ let customersData = [{
     status: "active"
 
 }, {
-    name: "13-Soukaina Oudouh",
+    name: "Soukaina Oudouh",
     id: 5764545458755,
     description: "Lorem ibra dolor sit amet, consectetur...",
     rate: "80.00",
@@ -119,7 +119,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "14-Ahmed Oudouh",
+    name: "Ahmed Oudouh",
     id: 575454244465544574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -128,7 +128,7 @@ let customersData = [{
     deposit: "500.00",
     status: "active"
 }, {
-    name: "15-Saad Koubaa",
+    name: "Saad Koubaa",
     id: 12565648,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
@@ -137,7 +137,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "16-Abdellah Oudouh",
+    name: "Abdellah Oudouh",
     id: 576458748755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -146,7 +146,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "17-Khalid Oudouh",
+    name: "Khalid Oudouh",
     id: 575456546424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -155,7 +155,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "18-Youness Oudouh",
+    name: "Youness Oudouh",
     id: 57645467868755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -164,7 +164,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "19-Mounia Mekrane",
+    name: "Mounia Mekrane",
     id: 57545566424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -173,7 +173,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "20-Abdelhadi Oudouh",
+    name: "Abdelhadi Oudouh",
     id: 5764545658755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -182,7 +182,7 @@ let customersData = [{
     deposit: "500.00",
     status: "inactive"
 }, {
-    name: "21-Azouz Mekrane",
+    name: "Azouz Mekrane",
     id: 575454564424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
@@ -388,7 +388,7 @@ function getActiveCustomers(allCustomers) {
 function removeCustomers(sourceOfCustomers, customerToRemove) {
     return sourceOfCustomers.filter(customer => customer.id !== customerToRemove)
 };
-let numOfRowsPerPage=(currentPage + 1) * NumRows;
+
 function renderCustomers(customersToRender) {
     tbody.innerHTML = "";
 
