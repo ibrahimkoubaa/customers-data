@@ -258,7 +258,7 @@ function createNewCustomer(customer) {
     let spanBalnce = document.createElement('span');
     if (customer.balance > 0) {
         spanBalnce.className = 'balance-red';
-    }else if (customer.balance < 0) {
+    } else if (customer.balance < 0) {
         spanBalnce.className = 'balance-green';
     } else spanBalnce.className = "balance";
     spanBalnce.textContent = customer.balance;
@@ -332,9 +332,11 @@ function sortCustomersByName(customersToSortName, statusOrder) {
             let nameB = b.name.toLowerCase();
             if (nameA < nameB) {
                 return -1;
-            } if (nameA > nameB) {
+            }
+            if (nameA > nameB) {
                 return 1;
-            } return 0;
+            }
+            return 0;
         });
     };
     if (statusOrder === 'zta') {
@@ -344,9 +346,11 @@ function sortCustomersByName(customersToSortName, statusOrder) {
             let nameB = b.name.toLowerCase();
             if (nameA > nameB) {
                 return -1;
-            } if (nameA < nameB) {
+            }
+            if (nameA < nameB) {
                 return 1;
-            } return 0;
+            }
+            return 0;
         });
     };
     return customersToSortName
@@ -373,11 +377,11 @@ function sortCustomersByStatus(customersToSort, statusOrder) {
     return customersToSort
 };
 
-function getActiveCustomers(allCustomers,status) {
+function getActiveCustomers(allCustomers, status) {
     customersDataLength.innerHTML = `/ ${allCustomers.length}`;
-  activecustomers.innerText = 0;
-   activecustomers.innerText= allCustomers.filter(customer => customer.status === status).length;
-            
+    activecustomers.innerText = 0;
+    activecustomers.innerText = allCustomers.filter(customer => customer.status === status).length;
+
 };
 
 function removeCustomers(sourceOfCustomers, customerToRemove) {
@@ -390,14 +394,14 @@ function renderCustomers(customersToRender) {
     let customersSearched = searchCustomers(customersToRender);
     let customersStatusSorted = sortCustomersByStatus(customersSearched, orderToSort);
     let customersNameSorted = sortCustomersByName(customersStatusSorted, orderToSort);
-    let displayRows = customersNameSorted.slice(currentPage * NumRows, (currentPage+1) * NumRows);
+    let displayRows = customersNameSorted.slice(currentPage * NumRows, (currentPage + 1) * NumRows);
 
     displayRows.forEach((customer) => {
         let row = createNewCustomer(customer);
         tbody.append(row);
     });
-    getActiveCustomers(customersNameSorted,'active');
-    let numOfRowsPerPage=(currentPage + 1) * NumRows;
+    getActiveCustomers(customersNameSorted, 'active');
+    let numOfRowsPerPage = (currentPage + 1) * NumRows;
     rowsPerPage.innerHTML = `${currentPage * NumRows}  - ${numOfRowsPerPage} of ${customersNameSorted.length}`;
 };
 
@@ -413,8 +417,7 @@ sortByName.addEventListener('click', () => {
     if (orderToSort === undefined) {
         orderToSort = 'atz';
         arrowNBottom.id = 'display';
-    }
-    else if (orderToSort === 'atz') {
+    } else if (orderToSort === 'atz') {
         orderToSort = 'zta';
         arrowNTop.id = 'display';
         arrowNBottom.id = 'arrow-bottom';
@@ -432,9 +435,8 @@ sortByStatus.addEventListener('click', () => {
     if (orderToSort === undefined) {
         orderToSort = 'ascending';
         arrowSBottom.id = 'display';
-    }
-    else if (orderToSort === 'ascending') {
-        orderToSort = 'descending'; 
+    } else if (orderToSort === 'ascending') {
+        orderToSort = 'descending';
         arrowSBottom.id = 'arrow-bottom-status';
         arrowSTop.id = 'display';
 
@@ -448,17 +450,17 @@ sortByStatus.addEventListener('click', () => {
 });
 
 nextPage.addEventListener('click', () => {
-    if((currentPage+1)<=customersData.length/(NumRows))
-        currentPage +=  1;
-    
+    if ((currentPage + 1) <= customersData.length / (NumRows))
+        currentPage += 1;
+
     renderCustomers(customersData)
 });
 
 priviousPage.addEventListener('click', () => {
-    if (currentPage!==0){
-        currentPage -=1;
+    if (currentPage !== 0) {
+        currentPage -= 1;
     }
-        
+
     renderCustomers(customersData)
 });
 

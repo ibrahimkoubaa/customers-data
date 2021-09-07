@@ -103,7 +103,8 @@ td {
     color: #2E3B52;
 }
 
-#sort-name,#sort-status {
+#sort-name,
+#sort-status {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -121,7 +122,8 @@ td {
     gap: 5px;
 }
 
-#arrow-top,#arrow-top-status {
+#arrow-top,
+#arrow-top-status {
     width: 0;
     height: 0;
     border-left: 4px solid transparent;
@@ -129,7 +131,8 @@ td {
     border-bottom: 4px solid #606F89;
 }
 
-#arrow-bottom,#arrow-bottom-status {
+#arrow-bottom,
+#arrow-bottom-status {
     width: 0;
     height: 0;
     border-left: 4px solid transparent;
@@ -145,28 +148,32 @@ td {
     cursor: pointer;
 }
 
-
-
 #cta {
     border: none;
     cursor: pointer;
 }
 
-.divName,.divRate,
+.divName,
+.divRate,
 .divBalance,
 .div,
 .divDeposit {
     display: flex;
     flex-direction: column;
 }
-.balance-red{
+
+.balance-red {
     color: #E01A1A;
 }
-.balance-green{
+
+.balance-green {
     color: #04991c;
-}.balance{
+}
+
+.balance {
     color: #606F89;
 }
+
 .customer-data1 {
     font-style: normal;
     font-weight: normal;
@@ -190,12 +197,12 @@ td {
     padding: 5px;
     border: none;
 }
-#display{
+
+#display {
     display: none;
 }
 
 .cta-inactive {
-    
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
@@ -207,7 +214,6 @@ td {
     border: 1px solid #606F89;
     border-radius: 11px;
     padding: 5px;
-   
 }
 
 .full-name {
@@ -290,7 +296,6 @@ button {
     display: flex;
 }
 
-;
 .selectionRow {
     font-style: normal;
     font-weight: 600;
