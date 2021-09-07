@@ -22,15 +22,11 @@
             <tr id="row-header">
                 <td class="checkbox"><input type="checkbox" id="checkbox"></td>
                 <td class="name">
-                    <div class="group">
+                    <div id="sort-name">
                         <span id="name">NAME</span>
-                        <div class="group-cta">
-                            <button class="cta-top">
-                            <div class="arrow-top"></div>
-                        </button>
-                            <button class="cta-bottom">
-                            <div class="arrow-bottom"></div>
-                        </button>
+                        <div id="group-name" class="group-cta" >
+                            <div id="arrow-top"></div>
+                            <div id="arrow-bottom"></div>
                         </div>
                     </div>
                 </td>
@@ -39,15 +35,11 @@
                 <td class="balance">BALANCE</td>
                 <td class="deposoit">DEPOSIT</td>
                 <td class="staus">
-                    <div class="group">
-                        <span id="name">STATUS</span>
-                        <div class="group-cta">
-                            <button id="cta-top">
-                            <div class="arrow-top"></div>
-                        </button>
-                            <button id="cta-bottom">
-                            <div class="arrow-bottom"></div>
-                        </button>
+                    <div id="sort-status">
+                        <span id="status">STATUS</span>
+                        <div class="group-cta" id="group-cta-status">
+                            <div id="arrow-top-status"></div>
+                            <div id="arrow-bottom-status"></div>
                         </div>
                     </div>
                 </td>
@@ -60,21 +52,21 @@
                 </td>
             </tr>
         </thead>
-        <tbody id="content">
+        <tbody id="contentOfTable">
         </tbody>
     </table>
     <footer>
         <div class="left-footer">
             <span>active customers: 
-                <span id="active-cust" style="font-weight: bold;"></span>
-            <span id="length-array"></span>
+                <span id="active-customers" style="font-weight: bold;"></span>
+            <span id="length"></span>
             </span>
         </div>
         <div class="right-footer">
             <div class="selection-row">
                 <label for="rows-select">Rows per page:</label>
                 <select name="custumer" id="rows-select" style="border: none;">
-                    <option value=""></option>
+                  
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
@@ -83,10 +75,10 @@
                     <option value="30">30</option>
                 </select>
             </div>
-            <span>1-10 of 706</span>
+            <span id="rows-page"></span>
             <div class="group-btn">
-                <button><div class="arrow-left"></div></button>
-                <a href="./next-page.html"><button><div class="arrow-right"></div></button></a>
+                <button><div id="arrow-left"></div></button>
+               <button><div id="arrow-right"></div></button>
             </div>
         </div>
     </footer>

@@ -1,384 +1,473 @@
-let localData = [{
-    name: "Ibrahim koubaa",
+let customersData = [{
+    name: "1-Ibrahim kouxbaa",
     id: 122156785648,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
     currency: "INR",
-    balance: "-270.00",
+    balance: "00.00",
     deposit: "500.00",
-    status: "ACTIVE"
+    status: "active"
 
 }, {
-    name: "Soukaina Oudouh",
-    id: 5764545458755,
+    name: "2-Ibrahim koubaa",
+    id: 122156748,
     description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "70.00",
+    currency: "INR",
+    balance: "00.00",
+    deposit: "500.00",
+    status: "active"
+
+}, {
+    name: "3-Soukainax udouh",
+    id: 57645458755,
+    description: "Lorem ibra dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
     balance: " 270.00",
     deposit: "500.00",
-    status: "ACTIVE"
+    status: "inactive"
 }, {
-    name: "Ahmed Oudouh",
-    id: 57545424544574,
+    name: "4-Ahmed Oudwouh",
+    id: 5754555424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
     balance: "170.00",
     deposit: "500.00",
-    status: "INACTIVE"
+    status: "active"
 }, {
-    name: "Saad Koubaa",
+    name: "5-Saad Koxubaa",
+    id: 125656448,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "70.00",
+    currency: "INR",
+    balance: "-270.00",
+    deposit: "500.00",
+    status: "inactive"
+}, {
+    name: "6-Abdellaxxh Oudouh",
+    id: 576448755,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "80.00",
+    currency: "INR",
+    balance: "270.00",
+    deposit: "500.00",
+    status: "inactive"
+}, {
+    name: "7-Khalid Ouwdouh",
+    id: 575456424574,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "80.00",
+    currency: "INR",
+    balance: "170.00",
+    deposit: "500.00",
+    status: "inactive"
+}, {
+    name: "8-Youwness Oudouh",
+    id: 576454678755,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "80.00",
+    currency: "INR",
+    balance: "0.00",
+    deposit: "500.00",
+    status: "inactive"
+}, {
+    name: "9-Mounia Mekxxrane",
+    id: 57545424574,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "80.00",
+    currency: "INR",
+    balance: "170.00",
+    deposit: "500.00",
+    status: "inactive"
+}, {
+    name: "10-Abdelhadi Oudxxouh",
+    id: 576658755,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "80.00",
+    currency: "INR",
+    balance: "270.00",
+    deposit: "500.00",
+    status: "inactive"
+}, {
+    name: "11-Azouz Mexxwkrane",
+    id: 5754524574,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "80.00",
+    currency: "INR",
+    balance: "-170.00",
+    deposit: "500.00",
+    status: "inactive"
+}, {
+    name: "12-Ibrahim koxxubaa",
+    id: 122156748,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "70.00",
+    currency: "INR",
+    balance: "00.00",
+    deposit: "500.00",
+    status: "active"
+
+}, {
+    name: "13-Soukaina Oudouh",
+    id: 5764545458755,
+    description: "Lorem ibra dolor sit amet, consectetur...",
+    rate: "80.00",
+    currency: "INR",
+    balance: " 270.00",
+    deposit: "500.00",
+    status: "inactive"
+}, {
+    name: "14-Ahmed Oudouh",
+    id: 575454244465544574,
+    description: "Lorem ipsum dolor sit amet, consectetur...",
+    rate: "80.00",
+    currency: "INR",
+    balance: "170.00",
+    deposit: "500.00",
+    status: "active"
+}, {
+    name: "15-Saad Koubaa",
     id: 12565648,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
     currency: "INR",
     balance: "-270.00",
     deposit: "500.00",
-    status: "INACTIVE"
+    status: "inactive"
 }, {
-    name: "Abdellah Oudouh",
+    name: "16-Abdellah Oudouh",
     id: 576458748755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
     balance: "270.00",
     deposit: "500.00",
-    status: "INACTIVE"
+    status: "inactive"
 }, {
-    name: "Khalid Oudouh",
+    name: "17-Khalid Oudouh",
     id: 575456546424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
     balance: "170.00",
     deposit: "500.00",
-    status: "INACTIVE"
+    status: "inactive"
 }, {
-    name: "Youness Oudouh",
+    name: "18-Youness Oudouh",
     id: 57645467868755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
-    balance: "270.00",
+    balance: "0.00",
     deposit: "500.00",
-    status: "INACTIVE"
+    status: "inactive"
 }, {
-    name: "Mounia Mekrane",
+    name: "19-Mounia Mekrane",
     id: 57545566424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
     balance: "170.00",
     deposit: "500.00",
-    status: "INACTIVE"
+    status: "inactive"
 }, {
-    name: "Abdelhadi Oudouh",
+    name: "20-Abdelhadi Oudouh",
     id: 5764545658755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
     balance: "270.00",
     deposit: "500.00",
-    status: "INACTIVE"
+    status: "inactive"
 }, {
-    name: "Azouz Mekrane",
+    name: "21-Azouz Mekrane",
     id: 575454564424574,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
     balance: "-170.00",
     deposit: "500.00",
-    status: "INACTIVE"
+    status: "inactive"
 }];
 
-let lengthArr = document.getElementById('length-array');
-let activeCust = document.getElementById('active-cust');
-let tbady = document.getElementById('content');
+let tbody = document.getElementById('contentOfTable');
+let customersDataLength = document.getElementById('length');
+let activecustomers = document.getElementById('active-customers');
+let inputSearch = document.getElementById('search');
+let sortByStatus = document.getElementById('sort-status');
+let sortByName = document.getElementById('sort-name');
+let arrowSTop = document.getElementById('arrow-top-status');
+let arrowSBottom = document.getElementById('arrow-bottom-status');
+let arrowNTop = document.getElementById('arrow-top');
+let arrowNBottom = document.getElementById('arrow-bottom');
+let rowsPerPage = document.getElementById('rows-page');
+let selectRows = document.getElementById('rows-select');
+let nextPage = document.getElementById('arrow-right');
+let priviousPage = document.getElementById('arrow-left');
+let orderToSort;
+let NumRows = 5;
+let currentPage = 0;
+
+function createNewCustomer(customer) {
+    let newRow = document.createElement('tr');
+    newRow.classList = "customer-data";
+    let check = document.createElement('td');
+    check.className = "checkbox";
+    check.innerHTML = '<input type="checkbox" class="check">';
+
+    let nameAndId = document.createElement('td');
+    nameAndId.className = "name";
+    let div = document.createElement('div');
+    div.className = "divName";
+    nameAndId.append(div);
+    let spanName = document.createElement('span');
+    spanName.className = "full-name";
+    spanName.textContent = customer.name;
+    let spanId = document.createElement('span');
+    spanId.className = 'id';
+    spanId.textContent = customer.id
+    div.append(spanName, spanId);
+
+    let description = document.createElement('td');
+    description.className = "description";
+    let spanDescription = document.createElement('span');
+    spanDescription.className = "spanDescription";
+    spanDescription.textContent = customer.description
+    description.append(spanDescription);
+
+    let rate = document.createElement('td');
+    rate.className = "rate";
+    let divRate = document.createElement('div');
+    divRate.className = "divRate";
+    rate.append(divRate);
+    let spanPrice = document.createElement('span');
+    spanPrice.className = "spanPrice";
+    spanPrice.textContent = customer.rate;
+    let spanCurrency = document.createElement('span');
+    spanCurrency.className = "spanCurrency";
+    spanCurrency.textContent = customer.currency
+    divRate.append(spanPrice, spanCurrency);
+
+    let balance = document.createElement('td');
+    balance.className = "balance";
+    let divBalance = document.createElement('div');
+    divBalance.className = "divBalance";
+    balance.append(divBalance);
+    let spanBalnce = document.createElement('span');
+    if (customer.balance > 0) {
+        spanBalnce.className = 'balance-red';
+    }else if (customer.balance < 0) {
+        spanBalnce.className = 'balance-green';
+    } else spanBalnce.className = "balance";
+    spanBalnce.textContent = customer.balance;
 
 
+    let spanCurrency2 = document.createElement('span');
+    spanCurrency2.className = "spanCurrency";
+    spanCurrency2.textContent = customer.currency
+    divBalance.append(spanBalnce, spanCurrency2);
 
 
+    let deposit = document.createElement('td');
+    deposit.className = "deposit";
+    let divDeposit = document.createElement('div');
+    divDeposit.className = "divDeposit";
+    deposit.append(divDeposit);
+    let spanDeposit = document.createElement('span');
+    spanDeposit.className = "spanDeposit";
+    spanDeposit.textContent = customer.deposit;
+    let spanCurrency3 = document.createElement('span');
+    spanCurrency3.className = "spanCurrency";
+    spanCurrency3.textContent = customer.currency
+    divDeposit.append(spanDeposit, spanCurrency3);
 
-function rendreing(arr) {
-    tbady.innerHTML = "";
-    arr.forEach((obj) => {
-        let newRow = document.createElement('tr');
-        newRow.classList = "customer-data";
-        let check = document.createElement('td');
-        check.className = "checkbox";
-        check.innerHTML = '<input type="checkbox" class="check">';
-
-        let nameAndId = document.createElement('td');
-        nameAndId.className = "name";
-        let div = document.createElement('div');
-        div.className = "divRate";
-        nameAndId.append(div);
-        let spanName = document.createElement('span');
-        spanName.className = "full-name";
-        spanName.textContent = obj.name;
-        let spanId = document.createElement('span');
-        spanId.className = 'number';
-        spanId.textContent = obj.id
-        div.append(spanName, spanId);
-
-        let description = document.createElement('td');
-        description.className = "description";
-        let spanDescription = document.createElement('span');
-        spanDescription.className = "spanDescription";
-        spanDescription.textContent = obj.description
-        description.append(spanDescription);
-
-        let rate = document.createElement('td');
-        rate.className = "rate";
-        let divRate = document.createElement('div');
-        divRate.className = "divRate";
-        rate.append(divRate);
-        let spanPrice = document.createElement('span');
-        spanPrice.className = "spanPrice";
-        spanPrice.textContent = obj.rate;
-        let spanCurrency = document.createElement('span');
-        spanCurrency.className = "spanCurrency";
-        spanCurrency.textContent = obj.currency
-        divRate.append(spanPrice, spanCurrency);
-
-        let balance = document.createElement('td');
-        balance.className = "balance";
-        let divBalance = document.createElement('div');
-        divBalance.className = "divBalance";
-        balance.append(divBalance);
-        let spanBalnce = document.createElement('span');
-        spanBalnce.className = "spanBalnce";
-        if (obj.balance < 0) {
-            spanBalnce.style.cssText += 'color: red';
-        } else if (obj.balance > 0) {
-            spanBalnce.style.cssText += 'color: green';
-        };
-        spanBalnce.textContent = obj.balance;
+    let statusBtn = document.createElement('td');
+    statusBtn.className = "btn";
+    let buttonActive = document.createElement('button');
+    buttonActive.className = "cta-active";
+    buttonActive.textContent = customer.status;
+    if (buttonActive.innerText === 'inactive') {
+        buttonActive.className = "cta-inactive";
+    };
+    statusBtn.append(buttonActive);
 
 
-        let spanCurrency2 = document.createElement('span');
-        spanCurrency2.className = "spanCurrency";
-        spanCurrency2.textContent = obj.currency
-        divBalance.append(spanBalnce, spanCurrency2);
+    let removebox = document.createElement('td');
+    removebox.className = "remove";
+    let removeIcon = document.createElement('button');
+    removebox.append(removeIcon);
+    removeIcon.id = 'cta';
+    removeIcon.innerHTML = '<div><img src="./images/basket.png" class="cta-img" alt="basket"></div>';
+    removeIcon.addEventListener('click', () => {
+        if (confirm("Do you want to remove it !!")) {
+            customersData = removeCustomers(customersData, customer.id);
+        }
+        renderCustomers(customersData)
+    })
 
-
-        let deposit = document.createElement('td');
-        deposit.className = "deposit";
-        let divDeposit = document.createElement('div');
-        divDeposit.className = "divDeposit";
-        deposit.append(divDeposit);
-        let spanDeposit = document.createElement('span');
-        spanDeposit.className = "spanDeposit";
-        spanDeposit.textContent = obj.deposit;
-        let spanCurrency3 = document.createElement('span');
-        spanCurrency3.className = "spanCurrency";
-        spanCurrency3.textContent = obj.currency
-        divDeposit.append(spanDeposit, spanCurrency3);
-
-        let statusBtn = document.createElement('td');
-        statusBtn.className = "btn";
-        let buttonActive = document.createElement('button');
-        buttonActive.className = "cta-active";
-        buttonActive.textContent = obj.status;
-
-        if (buttonActive.innerText === 'INACTIVE') {
-            buttonActive.style.cssText += 'background: #FFFFFF;color: #606F89;border: 1px solid #606F89';
-        };
-
-        statusBtn.append(buttonActive);
-
-
-        let removebox = document.createElement('td');
-        removebox.className = "remove";
-        let removeIcon = document.createElement('button');
-        removebox.append(removeIcon);
-        removeIcon.className = 'cta';
-        removeIcon.innerHTML = '<div><img src="./images/basket.png" class="cta-img" alt="basket"></div>';
-
-
-        tbady.append(newRow);
-        newRow.append(check, nameAndId, description, rate, balance, deposit, statusBtn, removebox);
-
-    });
-
+    newRow.append(check, nameAndId, description, rate, balance, deposit, statusBtn, removebox);
+    return newRow
 };
 
-function searching() {
-    let searchCustomers = document.getElementById('search');
-    searchCustomers.addEventListener('keyup', function() {
-        let searchCustomerL = searchCustomers.value.toLowerCase();
-        let dataFilitred = localData.filter((row) => {
-            let nameValue = row.name.toLowerCase();
-            let descripValue = row.description.toLowerCase();
-            if (nameValue.includes(searchCustomerL)) {
-                return true
-            } else if (descripValue.includes(searchCustomerL)) {
-                return true
-            }
-            return false
+function searchCustomers(customoersToSearch) {
+    let valueSearchFor = inputSearch.value.toLowerCase();
+    let valuesSearched = customoersToSearch.filter((customer) => {
+        let nameValue = customer.name.toLowerCase();
+        let descriptionValue = customer.description.toLowerCase();
+        if (nameValue.includes(valueSearchFor) || descriptionValue.includes(valueSearchFor)) {
+            return true
+        }
+        return false
+    })
+
+    return valuesSearched;
+};
+
+function sortCustomersByName(customersToSortName, statusOrder) {
+    if (statusOrder === 'atz') {
+        customersToSortName.sort((a, b) => {
+            let nameA = a.name.toLowerCase();
+            let nameB = b.name.toLowerCase();
+            if (nameA < nameB) {
+                return -1;
+            } if (nameA > nameB) {
+                return 1;
+            } return 0;
         });
-        rendreing(dataFilitred)
-    });
-};
+    };
+    if (statusOrder === 'zta') {
+        customersToSortName.sort((a, b) => {
 
-function sortingAZCustomers(originArr) {
-    let btnTop = document.querySelector('.cta-top');
-    btnTop.addEventListener('click', () => {
-        let copyOfOrigin = [...originArr];
-        let dataAZ = copyOfOrigin.sort((a, b) => {
-            if (a.name.toLowerCase() < b.name.toLowerCase()) {
-                return -1
-            }
-            if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                return 1
-            }
-            return 0
+            let nameA = a.name.toLowerCase();
+            let nameB = b.name.toLowerCase();
+            if (nameA > nameB) {
+                return -1;
+            } if (nameA < nameB) {
+                return 1;
+            } return 0;
         });
-        rendreing(dataAZ);
-    });
+    };
+    return customersToSortName
 };
 
-let btnBottom = document.querySelector('.cta-bottom');
+function sortCustomersByStatus(customersToSort, statusOrder) {
 
-function sortingDsec(elem, origineArr) {
-    elem.addEventListener('click', () => {
-        let dataZA = origineArr.slice().sort((a, b) => {
-            if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                return -1
-            }
-            if (a.name.toLowerCase() < b.name.toLowerCase()) {
-                return 1
-            }
-            return 0
-        });
-        rendreing(dataZA);
+    let activeCustomers = [];
+    let inactiveCustomers = [];
+    customersToSort.forEach((customer) => {
+        if (customer.status === 'active') {
+            activeCustomers.push(customer);
+
+        } else {
+            inactiveCustomers.push(customer)
+        }
     });
+    if (statusOrder === 'ascending') {
+        return activeCustomers.concat(inactiveCustomers);
+    }
+    if (statusOrder === 'descending') {
+        return inactiveCustomers.concat(activeCustomers);
+    }
+    return customersToSort
 };
 
-function getLength(arr) {
-    lengthArr.innerText = "/" + arr.length;
+function getActiveCustomers(allCustomers) {
+    customersDataLength.innerHTML = `/ ${allCustomers.length}`;
     let result = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].status === "ACTIVE") {
+    for (let i = 0; i < allCustomers.length; i++) {
+        if (allCustomers[i].status === "active") {
             result.push([i].status)
         }
-        activeCust.innerText = 0;
+        activecustomers.innerText = 0;
     }
-    activeCust.innerText = result.length
+    activecustomers.innerText = result.length
 };
 
-function sortingStatusToActive(arr) {
-    let btnBottom = document.getElementById('cta-top');
-    btnBottom.addEventListener('click', () => {
-        let result = arr.sort((a, b) => {
-            if (a.status < b.status) {
-                return -1
-            }
-            if (a.status > b.status) {
-                return 1
-            }
-            return 0
-        });
+function removeCustomers(sourceOfCustomers, customerToRemove) {
+    return sourceOfCustomers.filter(customer => customer.id !== customerToRemove)
+};
+let numOfRowsPerPage=(currentPage + 1) * NumRows;
+function renderCustomers(customersToRender) {
+    tbody.innerHTML = "";
 
-        rendreing(result);
+    let customersSearched = searchCustomers(customersToRender);
+    let customersStatusSorted = sortCustomersByStatus(customersSearched, orderToSort);
+    let customersNameSorted = sortCustomersByName(customersStatusSorted, orderToSort);
+    let displayRows = customersNameSorted.slice(currentPage * NumRows, (currentPage+1) * NumRows);
+
+    displayRows.forEach((customer) => {
+        let row = createNewCustomer(customer);
+        tbody.append(row);
     });
+    getActiveCustomers(displayRows);
+    let numOfRowsPerPage=(currentPage + 1) * NumRows;
+    rowsPerPage.innerHTML = `${currentPage * NumRows} c - ${numOfRowsPerPage} of al${customersNameSorted.length}`;
 };
 
-function sortingStatusToInctive(arr) {
-    let btnBottom = document.getElementById('cta-bottom');
-    btnBottom.addEventListener('click', () => {
-        let result = arr.sort((a, b) => {
-            if (a.status > b.status) {
-                return -1
-            }
-            if (a.status < b.status) {
-                return 1
-            }
-            return 0
-        });
+inputSearch.addEventListener('keyup', () => renderCustomers(customersData));
 
-        rendreing(result);
-    });
-};
-
-
-
-sortingStatusToInctive(localData);
-sortingStatusToActive(localData);
-rendreing(localData);
-searching();
-sortingAZCustomers(localData);
-sortingDsec(btnBottom, localData);
-getLength(localData);
-//removing(localData);
-
-
-document.addEventListener('change', () => {
-    let selectRows = document.getElementById('rows-select').value;
-
-    let lengthTbody = tbady.rows.length;
-    console.log(lengthTbody)
-    console.log(parseInt(selectRows))
-    if (lengthTbody < parseInt(selectRows)) {
-        rendreing(localData);
-    }
-    console.log(lengthTbody)
+selectRows.addEventListener('change', (e) => {
+    NumRows = e.target.value;
+    renderCustomers(customersData)
 });
 
+sortByName.addEventListener('click', () => {
 
+    if (orderToSort === undefined) {
+        orderToSort = 'atz';
+        arrowNBottom.id = 'display';
+    }
+    else if (orderToSort === 'atz') {
+        orderToSort = 'zta';
+        arrowNTop.id = 'display';
+        arrowNBottom.id = 'arrow-bottom';
 
-/*removing not by delete icon
-function removing(arr) {
-    let removeIcons = document.getElementsByClassName('cta');
-    console.log(removeIcons)
-    Array.from(removeIcons).forEach(removeIcon => {
-        removeIcon.addEventListener('click', (e) => {
-            if (confirm("Do you want to remove it !!")) {
-                let idCust = e.target.parentNode.parentNode.parentNode.parentNode.firstElementChild.nextElementSibling.lastElementChild.lastElementChild.innerText;
-                let result = arr.filter(customer => {
-                    return customer.id !== idCust
-                });
-                rendreing(result)
-            };
+    } else {
+        orderToSort = undefined;
+        arrowNTop.id = 'arrow-top';
+    }
 
-        });
-    });
-};
+    renderCustomers(customersData);
+});
 
-*/
+sortByStatus.addEventListener('click', () => {
 
+    if (orderToSort === undefined) {
+        orderToSort = 'ascending';
+        arrowSBottom.id = 'display';
+    }
+    else if (orderToSort === 'ascending') {
+        orderToSort = 'descending'; 
+        arrowSBottom.id = 'arrow-bottom-status';
+        arrowSTop.id = 'display';
 
+    } else {
+        orderToSort = undefined;
+        arrowSBottom.id = 'arrow-bottom-status';
+        arrowSTop.id = 'arrow-top-status';
+    }
 
+    renderCustomers(customersData);
+});
 
+nextPage.addEventListener('click', () => {
+let maxOfRows =(currentPage+1)*NumRows
+    if(numOfRowsPerPage<=21){
+        currentPage +=  1;
+    }
+    
+    
+    renderCustomers(customersData)
+});
 
+priviousPage.addEventListener('click', () => {
+    if (currentPage!==0){
+        currentPage -=1;
+    }
+        
+    renderCustomers(customersData)
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-let checkbox = document.getElementById('checkbox');
-let checkboxes = document.getElementsByClassName('check');
-checkbox.addEventListener('click', () => {
-
-
-    Array.from(checkboxes).map((checkboxAt) => {
-        console.log(checkboxAt)
-        if (checkbox.hasAttribute(checked)) {
-            checkboxAt.checked = true
-        }
-    })
-});*/
+renderCustomers(customersData);
