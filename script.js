@@ -453,11 +453,8 @@ sortByStatus.addEventListener('click', () => {
 });
 
 nextPage.addEventListener('click', () => {
-let maxOfRows =(currentPage+1)*NumRows
-    if(numOfRowsPerPage<=21){
+    if((currentPage+1)<=customersData.length/(NumRows))
         currentPage +=  1;
-    }
-    
     
     renderCustomers(customersData)
 });
