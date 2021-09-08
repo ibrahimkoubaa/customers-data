@@ -148,7 +148,7 @@ td {
     cursor: pointer;
 }
 
-#cta {
+.cta {
     border: none;
     cursor: pointer;
 }
@@ -199,7 +199,7 @@ td {
 }
 
 #display {
-    display: none;
+    border-color: transparent;
 }
 
 .cta-inactive {

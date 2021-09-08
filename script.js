@@ -205,51 +205,18 @@ let arrowNBottom = document.getElementById('arrow-bottom');
 let rowsPerPage = document.getElementById('rows-page');
 let selectRows = document.getElementById('rows-select');
 let nextPage = document.getElementById('arrow-right');
-let priviousPage = document.getElementById('arrow-left');
+let previousPage = document.getElementById('arrow-left');
 let orderToSort;
-let NumRows = 5;
+let numRows = 5;
 let currentPage = 0;
 
 function createNewCustomer(customer) {
     let newRow = document.createElement('tr');
     newRow.classList = "customer-data";
-    let check = document.createElement('td');
-    check.className = "checkbox";
-    check.innerHTML = '<input type="checkbox" class="check">';
-
-    let nameAndId = document.createElement('td');
-    nameAndId.className = "name";
-    let div = document.createElement('div');
-    div.className = "divName";
-    nameAndId.append(div);
-    let spanName = document.createElement('span');
-    spanName.className = "full-name";
-    spanName.textContent = customer.name;
-    let spanId = document.createElement('span');
-    spanId.className = 'id';
-    spanId.textContent = customer.id
-    div.append(spanName, spanId);
-
-    let description = document.createElement('td');
-    description.className = "description";
-    let spanDescription = document.createElement('span');
-    spanDescription.className = "spanDescription";
-    spanDescription.textContent = customer.description
-    description.append(spanDescription);
-
-    let rate = document.createElement('td');
-    rate.className = "rate";
-    let divRate = document.createElement('div');
-    divRate.className = "divRate";
-    rate.append(divRate);
-    let spanPrice = document.createElement('span');
-    spanPrice.className = "spanPrice";
-    spanPrice.textContent = customer.rate;
-    let spanCurrency = document.createElement('span');
-    spanCurrency.className = "spanCurrency";
-    spanCurrency.textContent = customer.currency
-    divRate.append(spanPrice, spanCurrency);
-
+    newRow.innerHTML = `<td class="checkbox"><input type="checkbox" class="check"></td>
+    <td class="name"><div class="divName"><span class="full-name">${customer.name}</span><span class="id">${customer.id}</span></div></td>
+    <td class="description"><span class="spanDescription">${customer.description}</span></td>
+    <td class="rate"><div class="divRate"><span class="spanPrice">${customer.rate}</span><span class="spanCurrency">${customer.currency}</span></div></td>`;
     let balance = document.createElement('td');
     balance.className = "balance";
     let divBalance = document.createElement('div');
@@ -257,18 +224,16 @@ function createNewCustomer(customer) {
     balance.append(divBalance);
     let spanBalnce = document.createElement('span');
     if (customer.balance > 0) {
-        spanBalnce.className = 'balance-red';
-    } else if (customer.balance < 0) {
         spanBalnce.className = 'balance-green';
+    } else if (customer.balance < 0) {
+        spanBalnce.className = 'balance-red';
     } else spanBalnce.className = "balance";
     spanBalnce.textContent = customer.balance;
-
 
     let spanCurrency2 = document.createElement('span');
     spanCurrency2.className = "spanCurrency";
     spanCurrency2.textContent = customer.currency
     divBalance.append(spanBalnce, spanCurrency2);
-
 
     let deposit = document.createElement('td');
     deposit.className = "deposit";
@@ -293,12 +258,11 @@ function createNewCustomer(customer) {
     };
     statusBtn.append(buttonActive);
 
-
     let removebox = document.createElement('td');
     removebox.className = "remove";
     let removeIcon = document.createElement('button');
     removebox.append(removeIcon);
-    removeIcon.id = 'cta';
+    removeIcon.className = 'cta';
     removeIcon.innerHTML = '<div><img src="./images/basket.png" class="cta-img" alt="basket"></div>';
     removeIcon.addEventListener('click', () => {
         if (confirm("Do you want to remove it !!")) {
@@ -307,7 +271,7 @@ function createNewCustomer(customer) {
         renderCustomers(customersData)
     })
 
-    newRow.append(check, nameAndId, description, rate, balance, deposit, statusBtn, removebox);
+    newRow.append(balance, deposit, statusBtn, removebox);
     return newRow
 };
 
@@ -321,7 +285,6 @@ function searchCustomers(customoersToSearch) {
         }
         return false
     })
-
     return valuesSearched;
 };
 
@@ -341,7 +304,6 @@ function sortCustomersByName(customersToSortName, statusOrder) {
     };
     if (statusOrder === 'zta') {
         customersToSortName.sort((a, b) => {
-
             let nameA = a.name.toLowerCase();
             let nameB = b.name.toLowerCase();
             if (nameA > nameB) {
@@ -357,17 +319,8 @@ function sortCustomersByName(customersToSortName, statusOrder) {
 };
 
 function sortCustomersByStatus(customersToSort, statusOrder) {
-
-    let activeCustomers = [];
-    let inactiveCustomers = [];
-    customersToSort.forEach((customer) => {
-        if (customer.status === 'active') {
-            activeCustomers.push(customer);
-
-        } else {
-            inactiveCustomers.push(customer)
-        }
-    });
+    let activeCustomers = customersToSort.filter(customer => customer.status === 'active');
+    let inactiveCustomers = customersToSort.filter(customer => customer.status === 'inactive');
     if (statusOrder === 'ascending') {
         return activeCustomers.concat(inactiveCustomers);
     }
@@ -379,9 +332,7 @@ function sortCustomersByStatus(customersToSort, statusOrder) {
 
 function getActiveCustomers(allCustomers, status) {
     customersDataLength.innerHTML = `/ ${allCustomers.length}`;
-    activecustomers.innerText = 0;
     activecustomers.innerText = allCustomers.filter(customer => customer.status === status).length;
-
 };
 
 function removeCustomers(sourceOfCustomers, customerToRemove) {
@@ -394,26 +345,25 @@ function renderCustomers(customersToRender) {
     let customersSearched = searchCustomers(customersToRender);
     let customersStatusSorted = sortCustomersByStatus(customersSearched, orderToSort);
     let customersNameSorted = sortCustomersByName(customersStatusSorted, orderToSort);
-    let displayRows = customersNameSorted.slice(currentPage * NumRows, (currentPage + 1) * NumRows);
+    let displayRows = customersNameSorted.slice(currentPage * numRows, (currentPage + 1) * numRows);
 
     displayRows.forEach((customer) => {
         let row = createNewCustomer(customer);
         tbody.append(row);
     });
     getActiveCustomers(customersNameSorted, 'active');
-    let numOfRowsPerPage = (currentPage + 1) * NumRows;
-    rowsPerPage.innerHTML = `${currentPage * NumRows}  - ${numOfRowsPerPage} of ${customersNameSorted.length}`;
+    let numOfRowsPerPage = (currentPage + 1) * numRows;
+    rowsPerPage.innerHTML = `${currentPage * numRows}  - ${numOfRowsPerPage} of ${customersNameSorted.length}`;
 };
 
 inputSearch.addEventListener('keyup', () => renderCustomers(customersData));
 
 selectRows.addEventListener('change', (e) => {
-    NumRows = e.target.value;
+    numRows = e.target.value;
     renderCustomers(customersData)
 });
 
 sortByName.addEventListener('click', () => {
-
     if (orderToSort === undefined) {
         orderToSort = 'atz';
         arrowNBottom.id = 'display';
@@ -421,17 +371,14 @@ sortByName.addEventListener('click', () => {
         orderToSort = 'zta';
         arrowNTop.id = 'display';
         arrowNBottom.id = 'arrow-bottom';
-
     } else {
         orderToSort = undefined;
         arrowNTop.id = 'arrow-top';
     }
-
     renderCustomers(customersData);
 });
 
 sortByStatus.addEventListener('click', () => {
-
     if (orderToSort === undefined) {
         orderToSort = 'ascending';
         arrowSBottom.id = 'display';
@@ -439,28 +386,25 @@ sortByStatus.addEventListener('click', () => {
         orderToSort = 'descending';
         arrowSBottom.id = 'arrow-bottom-status';
         arrowSTop.id = 'display';
-
     } else {
         orderToSort = undefined;
-        arrowSBottom.id = 'arrow-bottom-status';
         arrowSTop.id = 'arrow-top-status';
     }
-
     renderCustomers(customersData);
 });
 
-nextPage.addEventListener('click', () => {
-    if ((currentPage + 1) <= customersData.length / (NumRows))
-        currentPage += 1;
 
+nextPage.addEventListener('click', () => {
+    if ((currentPage + 1) <= customersData.length / (numRows)) {
+        currentPage += 1;
+    }
     renderCustomers(customersData)
 });
 
-priviousPage.addEventListener('click', () => {
+previousPage.addEventListener('click', () => {
     if (currentPage !== 0) {
         currentPage -= 1;
     }
-
     renderCustomers(customersData)
 });
 
