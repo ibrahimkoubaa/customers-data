@@ -13,75 +13,108 @@
 </head>
 
 <body>
-    <div class="search-header">
-        <input class="btn-search" type="text" name="search" id="search" placeholder="Search" />
-        <div class="icon-search"></div>
-    </div>
-    <table id="table">
-        <thead>
-            <tr id="row-header">
-                <td class="checkbox"><input type="checkbox" id="checkbox"></td>
-                <td class="name">
-                    <div id="sort-name">
-                        <span id="name">NAME</span>
-                        <div id="group-name" class="group-cta">
-                            <div id="arrow-top"></div>
-                            <div id="arrow-bottom"></div>
-                        </div>
-                    </div>
-                </td>
-                <td class="description">DESCRIPTION</td>
-                <td class="rate">RATE</td>
-                <td class="balance">BALANCE</td>
-                <td class="deposoit">DEPOSIT</td>
-                <td class="staus">
-                    <div id="sort-status">
-                        <span id="status">STATUS</span>
-                        <div class="group-cta" id="group-cta-status">
-                            <div id="arrow-top-status"></div>
-                            <div id="arrow-bottom-status"></div>
-                        </div>
-                    </div>
-                </td>
-                <td class="delete">
-                    <div class="cercles">
-                        <div class="cercle"></div>
-                        <div class="cercle"></div>
-                        <div class="cercle"></div>
-                    </div>
-                </td>
-            </tr>
-        </thead>
-        <tbody id="contentOfTable">
-        </tbody>
-    </table>
-    <footer>
-        <div class="left-footer">
-            <span>active customers: 
-                <span id="active-customers" style="font-weight: bold;"></span>
-            <span id="length"></span>
-            </span>
-        </div>
-        <div class="right-footer">
-            <div class="selection-row">
-                <label for="rows-select">Rows per page:</label>
-                <select name="custumer" id="rows-select" style="border: none;">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="30">30</option>
+    <div>
+        <form id="form">
+            <label for="add-customer">Add Customer</label>
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Name" id="nameCustomer" autofocus />
+                <small class="error"></small></div>
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Number" id="numberCustomer" />
+                <small class="error"></small></div>
+            <div class="field"><textarea type="text" class="fieldInput" id="descriptionCustomer" placeholder="Description about customer"></textarea>
+                <small class="error"></small></div>
+            <div class="field"><select name="" class="select fieldInput" id="currencyCustomer">
+                <option selected disabled hidden></option>
+                <option value="EUR">INR</option>
+                <option value="INR">EUR</option>
+                <option value="USD">USD</option>
                 </select>
-            </div>
-            <span id="rows-page"></span>
-            <div class="group-btn">
-                <button><div id="arrow-left"></div></button>
-                <button><div id="arrow-right"></div></button>
-            </div>
+                <small class="error"></small></div>
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Rate" id="rateCustomer" />
+                <small class="error"></small></div>
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Balance" id="balanceCustomer" />
+                <small class="error"></small></div>
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer deposit" id="depositCustomer" />
+                <small class="error"></small></div>
+            <div class="field"><select name="" class="select fieldInput" id="statusCustomer">
+                <option selected disabled hidden></option>
+                <option value="active">active</option>
+                <option value="inactive">inactive</option>
+                </select>
+                <small class="error"></small></div>
+            <div><input id="submit" value="Submit" type="submit"></div>
+        </form>
+    </div>
+    <div class="main">
+        <div class="search-header">
+            <input class="field-search" type="text" name="search" id="search" placeholder="Search" />
+            <div class="icon-search"></div>
         </div>
-    </footer>
+        <table id="table">
+            <thead>
+                <tr id="row-header">
+                    <td class="checkbox"><input type="checkbox" id="checkbox"></td>
+                    <td class="name">
+                        <div id="sort-name">
+                            <span id="name">NAME</span>
+                            <div id="group-name" class="group-cta">
+                                <div id="arrow-top"></div>
+                                <div id="arrow-bottom"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="description">DESCRIPTION</td>
+                    <td class="rate">RATE</td>
+                    <td class="balance">BALANCE</td>
+                    <td class="deposoit">DEPOSIT</td>
+                    <td class="staus">
+                        <div id="sort-status">
+                            <span id="status">STATUS</span>
+                            <div class="group-cta" id="group-cta-status">
+                                <div id="arrow-top-status"></div>
+                                <div id="arrow-bottom-status"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="delete">
+                        <div class="cercles">
+                            <div class="cercle"></div>
+                            <div class="cercle"></div>
+                            <div class="cercle"></div>
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="contentOfTable">
+            </tbody>
+        </table>
+        <footer>
+            <div class="left-footer">
+                <span>active customers: 
+                    <span id="active-customers" style="font-weight: bold;"></span>
+                <span id="length"></span>
+                </span>
+            </div>
+            <div class="right-footer">
+                <div class="selection-row">
+                    <label for="rows-select">Rows per page:</label>
+                    <select name="custumer" id="rows-select" style="border: none;">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+                <span id="rows-page"></span>
+                <div class="group-btn">
+                    <button><div id="arrow-left"></div></button>
+                    <button><div id="arrow-right"></div></button>
+                </div>
+            </div>
+        </footer>
 
+    </div>
 </body>
 <script src="./script.js"></script>
 

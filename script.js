@@ -192,6 +192,88 @@ let customersData = [{
     status: "inactive"
 }];
 
+
+let form = document.getElementById('form');
+let fieldName = document.getElementById('nameCustomer');
+let fieldNumber = document.getElementById('numberCustomer');
+let fieldDescription = document.getElementById('descriptionCustomer');
+let fieldCurrency = document.getElementById('currencyCustomer');
+let fieldRate = document.getElementById('rateCustomer');
+let fieldBalance = document.getElementById('balanceCustomer');
+let fieldDeposit = document.getElementById('depositCustomer');
+let fieldStatus = document.getElementById('statusCustomer');
+let errorFields = Array.from(document.querySelectorAll('.error'));
+let inputFields = Array.from(document.querySelectorAll('.fieldInput'));
+let submit = document.getElementById('submit');
+
+function check(valueToCheck, input) {
+    let errors = []
+    if (valueToCheck === '') {
+        errors.push('this field is required !')
+    };
+    input.nextElementSibling.innerText = errors;
+};
+
+function checkName(valueToCheck, input) {
+    let errors = [];
+    if (valueToCheck.length < 10) {
+        errors.push(`customer name should be up to 10 charcters`)
+    };
+    customersData.forEach(customer => {
+        if (customer.name === valueToCheck) { errors.push(`customer name already exists`) };
+    });
+
+    input.nextElementSibling.innerText = errors;
+};
+
+function checkDesc(valueToCheck, input) {
+    let errors = [];
+    if (valueToCheck.length <= 10) {
+        errors.push(`customer descreption should be up to 10 charcters`)
+    };
+    input.nextElementSibling.innerText = errors;
+};
+
+function checkId(valueToCheck, input) {
+    let errors = [];
+
+    if (valueToCheck.length < 10) {
+        errors.push(`customer id should be up to 10 digits`)
+    };
+    customersData.forEach(customer => {
+        if (customer.id.toString() === valueToCheck) { errors.push(`customer id already exists`) };
+    });
+
+    input.nextElementSibling.innerText = errors;
+};
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errorFields.forEach(field => field.innerText = "")
+    checkName(fieldName.value, fieldName);
+    checkId(fieldNumber.value, fieldNumber);
+    checkDesc(fieldDescription.value, fieldDescription);
+    check(fieldCurrency.value, fieldCurrency);
+    check(fieldRate.value, fieldRate);
+    check(fieldBalance.value, fieldBalance);
+    check(fieldDeposit.value, fieldDeposit);
+    check(fieldStatus.value, fieldStatus);
+    if (fieldName.value.length > 10, fieldNumber.value.length > 10, fieldDescription.value.length > 10) {
+        customersData.unshift({
+            name: fieldName.value,
+            id: parseInt(fieldNumber.value),
+            description: fieldDescription.value,
+            currency: fieldCurrency.value,
+            rate: fieldRate.value,
+            balance: fieldBalance.value,
+            deposit: fieldDeposit.value,
+            status: fieldStatus.value
+        });
+    };
+    renderCustomers(customersData);
+    inputFields.forEach(field => field.value = "");
+});
+
 let tbody = document.getElementById('contentOfTable');
 let customersDataLength = document.getElementById('length');
 let activecustomers = document.getElementById('active-customers');
@@ -214,9 +296,9 @@ function createNewCustomer(customer) {
     let newRow = document.createElement('tr');
     newRow.classList = "customer-data";
     newRow.innerHTML = `<td class="checkbox"><input type="checkbox" class="check"></td>
-    <td class="name"><div class="divName"><span class="full-name">${customer.name}</span><span class="id">${customer.id}</span></div></td>
-    <td class="description"><span class="spanDescription">${customer.description}</span></td>
-    <td class="rate"><div class="divRate"><span class="spanPrice">${customer.rate}</span><span class="spanCurrency">${customer.currency}</span></div></td>`;
+            <td class="name"><div class="divName"><span class="full-name">${customer.name}</span><span class="id">${customer.id}</span></div></td>
+            <td class="description"><span class="spanDescription">${customer.description}</span></td>
+            <td class="rate"><div class="divRate"><span class="spanPrice">${customer.rate}</span><span class="spanCurrency">${customer.currency}</span></div></td>`;
     let balance = document.createElement('td');
     balance.className = "balance";
     let divBalance = document.createElement('div');
@@ -280,9 +362,12 @@ function searchCustomers(customoersToSearch) {
     let valuesSearched = customoersToSearch.filter((customer) => {
         let nameValue = customer.name.toLowerCase();
         let descriptionValue = customer.description.toLowerCase();
-        if (nameValue.includes(valueSearchFor) || descriptionValue.includes(valueSearchFor)) {
-            return true
+        if (nameValue !== undefined) {
+            if (nameValue.includes(valueSearchFor) || descriptionValue.includes(valueSearchFor)) {
+                return true
+            }
         }
+
         return false
     })
     return valuesSearched;
@@ -409,3 +494,15 @@ previousPage.addEventListener('click', () => {
 });
 
 renderCustomers(customersData);
+
+
+
+
+
+/*let value = typeof(valueToCheck)
+   if (value !== 'string') {
+       errors.push('customer name should be string')
+   };*/
+/* if (typeof(parseInt(valueToCheck)) !== "number") {
+       errors.push('customer id should be number')
+   };*/
