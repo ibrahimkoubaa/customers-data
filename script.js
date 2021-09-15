@@ -207,61 +207,6 @@ let inputFields = Array.from(document.querySelectorAll('.fieldInput'));
 let submit = document.getElementById('submit');
 
 
-function checkName(valueToCheck, input) {
-    let errors = [];
-    if (valueToCheck.length < 10) {
-        errors.push(`customer name should be up to 10 charcters`)
-    };
-    customersData.forEach(customer => {
-        if (customer.name === valueToCheck) { errors.push(`customer name already exists`) };
-    });
-
-    input.nextElementSibling.innerText = errors;
-};
-
-function checkDesc(valueToCheck, input) {
-    let errors = [];
-    if (valueToCheck.length <= 10) {
-        errors.push(`customer descreption should be up to 10 charcters`)
-    };
-    input.nextElementSibling.innerText = errors;
-};
-
-function checkId(valueToCheck, input) {
-    let errors = [];
-
-    if (valueToCheck.length < 10) {
-        errors.push(`customer id should be up to 10 digits`)
-    };
-    customersData.forEach(customer => {
-        if (customer.id.toString() === valueToCheck) { errors.push(`customer id already exists`) };
-    });
-
-    input.nextElementSibling.innerText = errors;
-};
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    errorFields.forEach(field => field.innerText = "")
-    checkName(fieldName.value, fieldName);
-    checkId(fieldNumber.value, fieldNumber);
-    checkDesc(fieldDescription.value, fieldDescription);
-    if (fieldName.value.length > 10, fieldNumber.value.length > 10, fieldDescription.value.length > 10) {
-        customersData.unshift({
-            name: fieldName.value,
-            id: parseInt(fieldNumber.value),
-            description: fieldDescription.value,
-            currency: fieldCurrency.value,
-            rate: fieldRate.value,
-            balance: fieldBalance.value,
-            deposit: fieldDeposit.value,
-            status: fieldStatus.value
-        });
-    };
-    renderCustomers(customersData);
-    inputFields.forEach(field => field.value = "");
-});
-
 let tbody = document.getElementById('contentOfTable');
 let customersDataLength = document.getElementById('length');
 let activecustomers = document.getElementById('active-customers');
@@ -481,16 +426,60 @@ previousPage.addEventListener('click', () => {
     renderCustomers(customersData)
 });
 
+
+
+function checkName(valueToCheck, input) {
+    let errors = [];
+    if (valueToCheck.length < 10) {
+        errors.push(`customer name should be up to 10 charcters`)
+    };
+    customersData.forEach(customer => {
+        if (customer.name === valueToCheck) { errors.push(`customer name already exists`) };
+    });
+
+    input.nextElementSibling.innerText = errors;
+};
+
+function checkDesc(valueToCheck, input) {
+    let errors = [];
+    if (valueToCheck.length <= 10) {
+        errors.push(`customer descreption should be up to 10 charcters`)
+    };
+    input.nextElementSibling.innerText = errors;
+};
+
+function checkId(valueToCheck, input) {
+    let errors = [];
+
+    if (valueToCheck.length < 10) {
+        errors.push(`customer id should be up to 10 digits`)
+    };
+    customersData.forEach(customer => {
+        if (customer.id.toString() === valueToCheck) { errors.push(`customer id already exists`) };
+    });
+
+    input.nextElementSibling.innerText = errors;
+};
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errorFields.forEach(field => field.innerText = "")
+    checkName(fieldName.value, fieldName);
+    checkId(fieldNumber.value, fieldNumber);
+    checkDesc(fieldDescription.value, fieldDescription);
+    if (fieldName.value.length > 10, fieldNumber.value.length > 10, fieldDescription.value.length > 10) {
+        customersData.unshift({
+            name: fieldName.value,
+            id: parseInt(fieldNumber.value),
+            description: fieldDescription.value,
+            currency: fieldCurrency.value,
+            rate: fieldRate.value,
+            balance: fieldBalance.value,
+            deposit: fieldDeposit.value,
+            status: fieldStatus.value
+        });
+    };
+    renderCustomers(customersData);
+    inputFields.forEach(field => field.value = "");
+});
 renderCustomers(customersData);
-
-
-
-
-
-/*let value = typeof(valueToCheck)
-   if (value !== 'string') {
-       errors.push('customer name should be string')
-   };*/
-/* if (typeof(parseInt(valueToCheck)) !== "number") {
-       errors.push('customer id should be number')
-   };*/
