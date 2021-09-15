@@ -206,13 +206,6 @@ let errorFields = Array.from(document.querySelectorAll('.error'));
 let inputFields = Array.from(document.querySelectorAll('.fieldInput'));
 let submit = document.getElementById('submit');
 
-function check(valueToCheck, input) {
-    let errors = []
-    if (valueToCheck === '') {
-        errors.push('this field is required !')
-    };
-    input.nextElementSibling.innerText = errors;
-};
 
 function checkName(valueToCheck, input) {
     let errors = [];
@@ -253,11 +246,6 @@ form.addEventListener('submit', (e) => {
     checkName(fieldName.value, fieldName);
     checkId(fieldNumber.value, fieldNumber);
     checkDesc(fieldDescription.value, fieldDescription);
-    check(fieldCurrency.value, fieldCurrency);
-    check(fieldRate.value, fieldRate);
-    check(fieldBalance.value, fieldBalance);
-    check(fieldDeposit.value, fieldDeposit);
-    check(fieldStatus.value, fieldStatus);
     if (fieldName.value.length > 10, fieldNumber.value.length > 10, fieldDescription.value.length > 10) {
         customersData.unshift({
             name: fieldName.value,

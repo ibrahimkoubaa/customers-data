@@ -16,26 +16,26 @@
     <div>
         <form id="form">
             <label for="add-customer">Add Customer</label>
-            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Name" id="nameCustomer" autofocus />
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Name" id="nameCustomer" autofocus required oninvalid="this.setCustomValidity('this name field is required')" oninput="this.setCustomValidity('')" />
                 <small class="error"></small></div>
-            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Number" id="numberCustomer" />
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Number" id="numberCustomer" required oninvalid="this.setCustomValidity('this number field is required')" oninput="this.setCustomValidity('')" />
                 <small class="error"></small></div>
-            <div class="field"><textarea type="text" class="fieldInput" id="descriptionCustomer" placeholder="Description about customer"></textarea>
+            <div class="field"><textarea type="text" class="fieldInput" id="descriptionCustomer" placeholder="Description about customer" required oninvalid="this.setCustomValidity('this description field is required')" oninput="this.setCustomValidity('')"></textarea>
                 <small class="error"></small></div>
-            <div class="field"><select name="" class="select fieldInput" id="currencyCustomer">
+            <div class="field"><select name="" class="select fieldInput" id="currencyCustomer" required oninvalid="this.setCustomValidity('this currency field is required')" oninput="this.setCustomValidity('')">
                 <option selected disabled hidden></option>
                 <option value="EUR">INR</option>
                 <option value="INR">EUR</option>
                 <option value="USD">USD</option>
                 </select>
                 <small class="error"></small></div>
-            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Rate" id="rateCustomer" />
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Rate" id="rateCustomer" required oninvalid="this.setCustomValidity('this rate field is required')" oninput="this.setCustomValidity('')" />
                 <small class="error"></small></div>
-            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Balance" id="balanceCustomer" />
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Balance" id="balanceCustomer" required oninvalid="this.setCustomValidity('this balance field is required')" oninput="this.setCustomValidity('')" />
                 <small class="error"></small></div>
-            <div class="field"><input type="text" class="fieldInput" placeholder="Customer deposit" id="depositCustomer" />
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer deposit" id="depositCustomer" required oninvalid="this.setCustomValidity('this deposoit field is required')" oninput="this.setCustomValidity('')" />
                 <small class="error"></small></div>
-            <div class="field"><select name="" class="select fieldInput" id="statusCustomer">
+            <div class="field"><select name="" class="select fieldInput" id="statusCustomer" required oninvalid="this.setCustomValidity('this status field is required')" oninput="this.setCustomValidity('')">
                 <option selected disabled hidden></option>
                 <option value="active">active</option>
                 <option value="inactive">inactive</option>
