@@ -426,7 +426,7 @@ previousPage.addEventListener('click', () => {
     renderCustomers(customersData)
 });
 
-let number = "[0-9]+$";
+let number = "[0-9]";
 
 function valid(input) {
     input.nextElementSibling.innerHTML = ""
@@ -437,38 +437,38 @@ function errorMessage(input, message) {
     input.nextElementSibling.innerText = `${message}`;
 };
 
-function checkName(valueToCheck, input) {
-    let string = "[a-zA-Z]+$"
-    let existsName = customersData.some(customer => customer.name === valueToCheck);
-    if (valueToCheck === "") {
+function checkName(input) {
+    let string = "[a-zA-Z]"
+    let existsName = customersData.some(customer => customer.name == input.value);
+    if (input.value === "") {
         errorMessage(input, "customer name is required");
-    } else if (!valueToCheck.match(string)) {
-        errorMessage(input, 'customer name should be string');
     } else if (existsName) {
         errorMessage(input, 'customer name already exists');
+    } else if (!input.value.match(string)) {
+        errorMessage(input, 'customer name should be string');
     } else {
         valid(input)
     }
 };
 
 
-function checkDesc(valueToCheck, input) {
-    if (valueToCheck === "") {
+function checkDesc(input) {
+    if (input.value === "") {
         errorMessage(input, "customer description is required");
-    } else if (valueToCheck.length <= 10) {
+    } else if (input.value.length <= 10) {
         errorMessage(input, "customer descreption should be up to 10 charcters");
     } else {
         valid(input)
     }
 };
 
-function checkId(valueToCheck, input) {
-    let existsId = customersData.some(customer => customer.id === valueToCheck);
-    if (valueToCheck === "") {
+function checkId(input) {
+    let existsId = customersData.some(customer => customer.id === input.value);
+    if (input.value === "") {
         errorMessage(input, "customer id is required");
-    } else if (!valueToCheck.match(number)) {
+    } else if (!input.value.match(number)) {
         errorMessage(input, "customer id should be number");
-    } else if (valueToCheck.length != 10 && valueToCheck.length > 0) {
+    } else if (input.value.length != 10 && input.value.length > 0) {
         errorMessage(input, "customer name should be 10 charcters");
     } else if (existsId) {
         errorMessage(input, 'customer id already exists');
@@ -477,26 +477,26 @@ function checkId(valueToCheck, input) {
     }
 };
 
-function checkNumber(valueToCheck, input) {
-    if (valueToCheck === "") {
+function checkNumber(input) {
+    if (input.value === "") {
         errorMessage(input, "customer field is required");
-    } else if (!valueToCheck.match(number)) {
+    } else if (!input.value.match(number)) {
         errorMessage(input, "customer field should be number");
     } else {
         valid(input)
     }
 };
 
-function checkCurrency(valueToCheck, input) {
-    if (valueToCheck === "Currency") {
+function checkCurrency(input) {
+    if (input.value === "Currency") {
         errorMessage(input, "customer currency is required");
     } else {
         valid(input)
     }
 };
 
-function checkStatus(valueToCheck, input) {
-    if (valueToCheck === "Status") {
+function checkStatus(input) {
+    if (input.value === "Status") {
         errorMessage(input, "customer status is required");
     } else {
         valid(input)
@@ -506,14 +506,14 @@ function checkStatus(valueToCheck, input) {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    checkName(fieldName.value, fieldName);
-    checkId(fieldNumber.value, fieldNumber);
-    checkDesc(fieldDescription.value, fieldDescription);
-    checkCurrency(fieldCurrency.value, fieldCurrency)
-    checkNumber(fieldRate.value, fieldRate)
-    checkNumber(fieldBalance.value, fieldBalance)
-    checkNumber(fieldDeposit.value, fieldDeposit)
-    checkStatus(fieldStatus.value, fieldStatus)
+    checkName(fieldName);
+    checkId(fieldNumber);
+    checkDesc(fieldDescription);
+    checkCurrency(fieldCurrency)
+    checkNumber(fieldRate)
+    checkNumber(fieldBalance)
+    checkNumber(fieldDeposit)
+    checkStatus(fieldStatus)
 
     if (inputFields.every(field => field.classList.contains("validate"))) {
         customersData.unshift({
