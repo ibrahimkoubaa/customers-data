@@ -426,60 +426,108 @@ previousPage.addEventListener('click', () => {
     renderCustomers(customersData)
 });
 
+let number = "[0-9]+$";
 
-
-function checkName(valueToCheck, input) {
-    let errors = [];
-    if (valueToCheck.length < 10) {
-        errors.push(`customer name should be up to 10 charcters`)
-    };
-    customersData.forEach(customer => {
-        if (customer.name === valueToCheck) { errors.push(`customer name already exists`) };
-    });
-
-    input.nextElementSibling.innerText = errors;
+function valid(input) {
+    input.nextElementSibling.innerHTML = ""
+    input.classList.add("validate")
 };
 
+function errorMessage(input, message) {
+    input.nextElementSibling.innerText = `${message}`;
+};
+
+function checkName(valueToCheck, input) {
+    let string = "[a-zA-Z]+$"
+    let existsName = customersData.some(customer => customer.name === valueToCheck);
+    if (valueToCheck === "") {
+        errorMessage(input, "customer name is required");
+    } else if (!valueToCheck.match(string)) {
+        errorMessage(input, 'customer name should be string');
+    } else if (existsName) {
+        errorMessage(input, 'customer name already exists');
+    } else {
+        valid(input)
+    }
+};
+
+
 function checkDesc(valueToCheck, input) {
-    let errors = [];
-    if (valueToCheck.length <= 10) {
-        errors.push(`customer descreption should be up to 10 charcters`)
-    };
-    input.nextElementSibling.innerText = errors;
+    if (valueToCheck === "") {
+        errorMessage(input, "customer description is required");
+    } else if (valueToCheck.length <= 10) {
+        errorMessage(input, "customer descreption should be up to 10 charcters");
+    } else {
+        valid(input)
+    }
 };
 
 function checkId(valueToCheck, input) {
-    let errors = [];
+    let existsId = customersData.some(customer => customer.id === valueToCheck);
+    if (valueToCheck === "") {
+        errorMessage(input, "customer id is required");
+    } else if (!valueToCheck.match(number)) {
+        errorMessage(input, "customer id should be number");
+    } else if (valueToCheck.length != 10 && valueToCheck.length > 0) {
+        errorMessage(input, "customer name should be 10 charcters");
+    } else if (existsId) {
+        errorMessage(input, 'customer id already exists');
+    } else {
+        valid(input)
+    }
+};
 
-    if (valueToCheck.length < 10) {
-        errors.push(`customer id should be up to 10 digits`)
-    };
-    customersData.forEach(customer => {
-        if (customer.id.toString() === valueToCheck) { errors.push(`customer id already exists`) };
-    });
+function checkNumber(valueToCheck, input) {
+    if (valueToCheck === "") {
+        errorMessage(input, "customer field is required");
+    } else if (!valueToCheck.match(number)) {
+        errorMessage(input, "customer field should be number");
+    } else {
+        valid(input)
+    }
+};
 
-    input.nextElementSibling.innerText = errors;
+function checkCurrency(valueToCheck, input) {
+    if (valueToCheck === "Currency") {
+        errorMessage(input, "customer currency is required");
+    } else {
+        valid(input)
+    }
+};
+
+function checkStatus(valueToCheck, input) {
+    if (valueToCheck === "Status") {
+        errorMessage(input, "customer status is required");
+    } else {
+        valid(input)
+    }
 };
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    errorFields.forEach(field => field.innerText = "")
+
     checkName(fieldName.value, fieldName);
     checkId(fieldNumber.value, fieldNumber);
     checkDesc(fieldDescription.value, fieldDescription);
-    if (fieldName.value.length > 10, fieldNumber.value.length > 10, fieldDescription.value.length > 10) {
+    checkCurrency(fieldCurrency.value, fieldCurrency)
+    checkNumber(fieldRate.value, fieldRate)
+    checkNumber(fieldBalance.value, fieldBalance)
+    checkNumber(fieldDeposit.value, fieldDeposit)
+    checkStatus(fieldStatus.value, fieldStatus)
+
+    if (inputFields.every(field => field.classList.contains("validate"))) {
         customersData.unshift({
             name: fieldName.value,
-            id: parseInt(fieldNumber.value),
+            id: Number(fieldNumber.value),
             description: fieldDescription.value,
             currency: fieldCurrency.value,
-            rate: fieldRate.value,
-            balance: fieldBalance.value,
-            deposit: fieldDeposit.value,
+            rate: Number(fieldRate.value).toFixed(2),
+            deposit: Number(fieldDeposit.value).toFixed(2),
+            balance: Number(fieldBalance.value).toFixed(2),
             status: fieldStatus.value
         });
+        inputFields.forEach(field => field.value = "");
     };
     renderCustomers(customersData);
-    inputFields.forEach(field => field.value = "");
 });
 renderCustomers(customersData);
