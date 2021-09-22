@@ -381,6 +381,7 @@ selectRows.addEventListener('change', (e) => {
     renderCustomers(customersData)
 });
 
+
 sortByName.addEventListener('click', () => {
     if (orderToSort === undefined) {
         orderToSort = 'atz';
@@ -528,8 +529,10 @@ form.addEventListener('submit', (e) => {
             balance: Number(fieldBalance.value).toFixed(2),
             status: fieldStatus.value
         });
-        inputFields.forEach(field => field.value = "");
+
     };
+    inputFields.forEach(field => field.value = "");
+    inputFields.forEach(field => field.classList.remove("validate"));
     renderCustomers(customersData);
 });
 
