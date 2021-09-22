@@ -426,37 +426,48 @@ previousPage.addEventListener('click', () => {
     renderCustomers(customersData)
 });
 
-let number = "[0-9]";
+let number = "^[0-9]+$";
+let string = "^[a-zA-Z]+$";
 
 function valid(input) {
     input.nextElementSibling.innerHTML = ""
     input.classList.add("validate")
 };
 
-function errorMessage(input, message) {
-    input.nextElementSibling.innerText = `${message}`;
+function mustBeUnique(input, data) {
+    input.nextElementSibling.innerText = `customer ${data} already exists`;
+};
+
+function isRequired(input, data) {
+    input.nextElementSibling.innerText = `customer ${data} is required`;
+};
+
+function lengthOfData(input, data, length) {
+    input.nextElementSibling.innerText = `customer ${data} should be ${length}`;
+};
+
+function typeOfData(input, data, type) {
+    input.nextElementSibling.innerText = `customer ${data} should be ${type}`;
 };
 
 function checkName(input) {
-    let string = "[a-zA-Z]"
     let existsName = customersData.some(customer => customer.name == input.value);
     if (input.value === "") {
-        errorMessage(input, "customer name is required");
+        isRequired(input, "name")
     } else if (existsName) {
-        errorMessage(input, 'customer name already exists');
+        mustBeUnique(input, "name")
     } else if (!input.value.match(string)) {
-        errorMessage(input, 'customer name should be string');
+        typeOfData(input, "name", "string")
     } else {
         valid(input)
     }
 };
 
-
 function checkDesc(input) {
     if (input.value === "") {
-        errorMessage(input, "customer description is required");
+        isRequired(input, "description")
     } else if (input.value.length <= 10) {
-        errorMessage(input, "customer descreption should be up to 10 charcters");
+        lengthOfData(input, "descreption", "up to 10 charcters")
     } else {
         valid(input)
     }
@@ -465,13 +476,13 @@ function checkDesc(input) {
 function checkId(input) {
     let existsId = customersData.some(customer => customer.id === input.value);
     if (input.value === "") {
-        errorMessage(input, "customer id is required");
+        isRequired(input, "id")
     } else if (!input.value.match(number)) {
-        errorMessage(input, "customer id should be number");
+        typeOfData(input, "id", "number")
     } else if (input.value.length != 10 && input.value.length > 0) {
-        errorMessage(input, "customer name should be 10 charcters");
+        lengthOfData(input, "descreption", "10 digits")
     } else if (existsId) {
-        errorMessage(input, 'customer id already exists');
+        mustBeUnique(input, "id")
     } else {
         valid(input)
     }
@@ -479,25 +490,17 @@ function checkId(input) {
 
 function checkNumber(input) {
     if (input.value === "") {
-        errorMessage(input, "customer field is required");
+        isRequired(input, "field")
     } else if (!input.value.match(number)) {
-        errorMessage(input, "customer field should be number");
+        typeOfData(input, "field", "number")
     } else {
         valid(input)
     }
 };
 
-function checkCurrency(input) {
-    if (input.value === "Currency") {
-        errorMessage(input, "customer currency is required");
-    } else {
-        valid(input)
-    }
-};
-
-function checkStatus(input) {
-    if (input.value === "Status") {
-        errorMessage(input, "customer status is required");
+function checkField(input) {
+    if (input.value === "Currency" || input.value === "Status") {
+        isRequired(input, "field")
     } else {
         valid(input)
     }
@@ -505,15 +508,14 @@ function checkStatus(input) {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-
     checkName(fieldName);
     checkId(fieldNumber);
     checkDesc(fieldDescription);
-    checkCurrency(fieldCurrency)
-    checkNumber(fieldRate)
-    checkNumber(fieldBalance)
-    checkNumber(fieldDeposit)
-    checkStatus(fieldStatus)
+    checkField(fieldStatus);
+    checkField(fieldCurrency);
+    checkNumber(fieldRate);
+    checkNumber(fieldBalance);
+    checkNumber(fieldDeposit);
 
     if (inputFields.every(field => field.classList.contains("validate"))) {
         customersData.unshift({
@@ -530,4 +532,5 @@ form.addEventListener('submit', (e) => {
     };
     renderCustomers(customersData);
 });
+
 renderCustomers(customersData);
