@@ -12,7 +12,7 @@
     <title>customer data</title>
 </head>
 
-<body>
+<body id="body">
     <div>
         <form id="form">
             <label for="add-customer">Add Customer</label>
@@ -23,7 +23,7 @@
             <div class="field"><textarea type="text" class="fieldInput" id="descriptionCustomer" placeholder="Description about customer"></textarea>
                 <small class="error"></small></div>
             <div class="field"><select class="select fieldInput" id="currencyCustomer">
-                <option >Currency</option>
+                <option value="">currency</option>
                 <option value="EUR">INR</option>
                 <option value="INR">EUR</option>
                 <option value="USD">USD</option>
@@ -35,8 +35,8 @@
                 <small class="error"></small></div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer deposit" id="depositCustomer" />
                 <small class="error"></small></div>
-            <div class="field"><select name="" class="select fieldInput" id="statusCustomer">
-                <option selected disabled hidden>Status</option>
+            <div class="field"><select class="select fieldInput" id="statusCustomer">
+                <option value="">status</option>
                 <option value="active">active</option>
                 <option value="inactive">inactive</option>
                 </select>

@@ -192,7 +192,6 @@ let customersData = [{
     status: "inactive"
 }];
 
-
 let form = document.getElementById('form');
 let fieldName = document.getElementById('nameCustomer');
 let fieldNumber = document.getElementById('numberCustomer');
@@ -206,7 +205,7 @@ let errorFields = Array.from(document.querySelectorAll('.error'));
 let inputFields = Array.from(document.querySelectorAll('.fieldInput'));
 let submit = document.getElementById('submit');
 
-
+let body = document.getElementById('body')
 let tbody = document.getElementById('contentOfTable');
 let customersDataLength = document.getElementById('length');
 let activecustomers = document.getElementById('active-customers');
@@ -221,6 +220,7 @@ let rowsPerPage = document.getElementById('rows-page');
 let selectRows = document.getElementById('rows-select');
 let nextPage = document.getElementById('arrow-right');
 let previousPage = document.getElementById('arrow-left');
+
 let orderToSort;
 let numRows = 5;
 let currentPage = 0;
@@ -284,6 +284,7 @@ function createNewCustomer(customer) {
             customersData = removeCustomers(customersData, customer.id);
         }
         renderCustomers(customersData)
+
     })
 
     newRow.append(balance, deposit, statusBtn, removebox);
@@ -381,7 +382,6 @@ selectRows.addEventListener('change', (e) => {
     renderCustomers(customersData)
 });
 
-
 sortByName.addEventListener('click', () => {
     if (orderToSort === undefined) {
         orderToSort = 'atz';
@@ -412,7 +412,6 @@ sortByStatus.addEventListener('click', () => {
     renderCustomers(customersData);
 });
 
-
 nextPage.addEventListener('click', () => {
     if ((currentPage + 1) <= customersData.length / (numRows)) {
         currentPage += 1;
@@ -431,92 +430,211 @@ let number = "^[0-9]+$";
 let string = "^[a-zA-Z]+$";
 
 function valid(input) {
-    input.nextElementSibling.innerHTML = ""
-    input.classList.add("validate")
+    input.nextElementSibling.innerText = ""
+    input.classList.add("validate");
+
+
 };
 
 function mustBeUnique(input, data) {
     input.nextElementSibling.innerText = `customer ${data} already exists`;
+    input.classList.remove("validate");
+
 };
 
 function isRequired(input, data) {
     input.nextElementSibling.innerText = `customer ${data} is required`;
+    input.classList.remove("validate");
+
 };
 
 function lengthOfData(input, data, length) {
     input.nextElementSibling.innerText = `customer ${data} should be ${length}`;
+    input.classList.remove("validate");
 };
 
 function typeOfData(input, data, type) {
     input.nextElementSibling.innerText = `customer ${data} should be ${type}`;
+    input.classList.remove("validate");
+
 };
+
+creatProgressBar();
 
 function checkName(input) {
     let existsName = customersData.some(customer => customer.name == input.value);
     if (input.value === "") {
-        isRequired(input, "name")
-    } else if (existsName) {
-        mustBeUnique(input, "name")
-    } else if (!input.value.match(string)) {
-        typeOfData(input, "name", "string")
-    } else {
-        valid(input)
-    }
-};
+        isRequired(input, "name");
 
-function checkDesc(input) {
-    if (input.value === "") {
-        isRequired(input, "description")
-    } else if (input.value.length <= 10) {
-        lengthOfData(input, "descreption", "up to 10 charcters")
+    } else if (existsName) {
+        mustBeUnique(input, "name");
+
+    } else if (!input.value.match(string)) {
+        typeOfData(input, "name", "string");
+
     } else {
         valid(input)
+
     }
 };
 
 function checkId(input) {
     let existsId = customersData.some(customer => customer.id === input.value);
     if (input.value === "") {
-        isRequired(input, "id")
+        isRequired(input, "id");
     } else if (!input.value.match(number)) {
-        typeOfData(input, "id", "number")
+        typeOfData(input, "id", "number");
     } else if (input.value.length != 10 && input.value.length > 0) {
-        lengthOfData(input, "descreption", "10 digits")
+        lengthOfData(input, "number", "10 digits");
     } else if (existsId) {
-        mustBeUnique(input, "id")
+        mustBeUnique(input, "id");
     } else {
-        valid(input)
+        valid(input);
+
     }
 };
 
-function checkNumber(input) {
+function checkDesc(input) {
     if (input.value === "") {
-        isRequired(input, "field")
-    } else if (!input.value.match(number)) {
-        typeOfData(input, "field", "number")
+        isRequired(input, "description");
+    } else if (input.value.length <= 10) {
+        lengthOfData(input, "descreption", "up to 10 charcters");
     } else {
-        valid(input)
+        valid(input, 2);
     }
 };
 
-function checkField(input) {
-    if (input.value === "Currency" || input.value === "Status") {
-        isRequired(input, "field")
+function checkRate(input) {
+    if (input.value === "") {
+        isRequired(input, "Rate");
+    } else if (!input.value.match(number)) {
+        typeOfData(input, "Rate", "number");
     } else {
-        valid(input)
+        valid(input);
     }
 };
+
+function checkBalance(input) {
+    if (input.value === "") {
+        isRequired(input, "Balance");
+    } else if (!input.value.match(number)) {
+        typeOfData(input, "Balance", "number");
+    } else {
+        valid(input);
+    }
+};
+
+function checkDeposit(input) {
+    if (input.value === "") {
+        isRequired(input, "Deposit");
+    } else if (!input.value.match(number)) {
+        typeOfData(input, "Deposit", "number");
+    } else {
+        valid(input);
+    }
+};
+
+
+
+function checkStatus(input) {
+    if (input.value === "") {
+        isRequired(input, "Status");
+    } else {
+
+        valid(input);
+
+    }
+};
+
+function checkCurrency(input) {
+    if (input.value === "") {
+        isRequired(input, "Currency");
+    } else {
+        valid(input);
+    }
+};
+
+function creatProgressBar() {
+    let container = document.createElement('div');
+    container.id = 'container';
+    container.innerHTML = `<div id='progress-bar'></div>
+    <span id='value'>0%</span>`;
+    form.append(container);
+};
+
+let counterBox = []
+
+
+function updateProgress(i) {
+    let validate = inputFields[i].classList.contains('validate')
+    if (validate == true) {
+        if (counterBox[counterBox.indexOf(i)] !== i) {
+            counterBox.push(i)
+        }
+    } else {
+        counterBox.splice(counterBox.indexOf(i), 1)
+    }
+    myProgress()
+    console.log(counterBox)
+};
+const progressBar = document.getElementById("progress-bar");
+const value = document.getElementById("value");
+
+function myProgress() {
+
+    let result = (100 / 8) * counterBox.length
+    result = Math.round(result);
+    progressBar.style.width = `${result}%`;
+    value.textContent = `${result}%`
+}
+
+
+fieldName.addEventListener("keyup", () => checkName(fieldName));
+fieldName.addEventListener("blur", () => updateProgress(0));
+fieldNumber.addEventListener("keyup", () => checkId(fieldNumber));
+fieldNumber.addEventListener("blur", () => updateProgress(1));
+fieldDescription.addEventListener("keyup", () => checkDesc(fieldDescription));
+fieldDescription.addEventListener("blur", () => updateProgress(2));
+fieldCurrency.addEventListener("change", () => checkCurrency(fieldCurrency));
+fieldCurrency.addEventListener("blur", () => updateProgress(3));
+fieldRate.addEventListener("keyup", () => checkRate(fieldRate));
+fieldRate.addEventListener("blur", () => updateProgress(4));
+fieldBalance.addEventListener("keyup", () => checkBalance(fieldBalance));
+fieldBalance.addEventListener("blur", () => updateProgress(5));
+fieldDeposit.addEventListener("keyup", () => checkDeposit(fieldDeposit));
+fieldDeposit.addEventListener("blur", () => updateProgress(6));
+
+fieldStatus.addEventListener("change", () => {
+        checkStatus(fieldStatus)
+        updateProgress(7);
+
+    }
+
+
+);
+fieldStatus.addEventListener("blur", () => updateProgress(7));
+
+let messageNotif = () => {
+    let notification = document.createElement('div');
+    notification.id = "notification"
+    notification.innerHTML = `<img src="./images/valid.png" alt="valid" width="50px" height="50px">
+                            <strong class="message">Great</strong> <span class="message2">The form was submitted successfully.</span>`;
+    body.prepend(notification);
+    setTimeout(function() {
+        notification.style.display = "none";
+    }, 5000)
+}
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     checkName(fieldName);
     checkId(fieldNumber);
     checkDesc(fieldDescription);
-    checkField(fieldStatus);
-    checkField(fieldCurrency);
-    checkNumber(fieldRate);
-    checkNumber(fieldBalance);
-    checkNumber(fieldDeposit);
+    checkCurrency(fieldCurrency);
+    checkRate(fieldRate);
+    checkBalance(fieldBalance);
+    checkDeposit(fieldDeposit);
+    checkStatus(fieldStatus);
 
     if (inputFields.every(field => field.classList.contains("validate"))) {
         customersData.unshift({
@@ -530,10 +648,14 @@ form.addEventListener('submit', (e) => {
             status: fieldStatus.value
         });
 
+        inputFields.forEach(field => field.classList.remove("validate"));
+        inputFields.forEach(field => field.value = "");
+        messageNotif();
+        progressBar.style.width = `${0}%`;
+        value.textContent = `${0}%`
+        renderCustomers(customersData);
     };
-    inputFields.forEach(field => field.value = "");
-    inputFields.forEach(field => field.classList.remove("validate"));
-    renderCustomers(customersData);
+
 });
 
 renderCustomers(customersData);

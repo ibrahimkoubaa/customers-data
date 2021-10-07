@@ -8,6 +8,42 @@
 body {
     margin: 0px auto;
     max-width: 1020px;
+    position: relative;
+}
+
+.validate {
+    border-color: green;
+}
+
+#notification {
+    position: absolute;
+    width: 40%;
+    top: 60%;
+    height: 15%;
+    right: 300px;
+    background: #c1b1a9;
+    padding: 30px 9px;
+    border: 11px #5b5555 solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+    border-radius: 11px;
+}
+
+.message2 {
+    color: #2E3B52;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.message {
+    color: #2E3B52;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 17px;
 }
 
 #submit {
@@ -88,7 +124,7 @@ label {
     padding: 8px 10px;
     background-color: #DAE1EC;
     border-radius: 4px;
-    border: none;
+    border-color: transparent;
     width: 300px;
     color: #2E3B52;
     font-size: 14px;
@@ -345,4 +381,28 @@ button {
     line-height: 15px;
     letter-spacing: 0.05em;
     color: #606F89;
+}
+
+#container {
+    height: 25px;
+    background-color: #cccc;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    transition: all 0.8s;
+    border-radius: 5%;
+    background-color: #d956eb
+}
+
+#value {
+    position: absolute;
+    top: 10%;
+    right: 5px;
+    transform: translate(-50%);
+    color: #000000;
 }
