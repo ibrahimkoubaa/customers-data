@@ -6,21 +6,44 @@
 }
 
 body {
-    margin: 0px auto;
+    margin: 30px auto;
     max-width: 1020px;
     position: relative;
+}
+
+#displayed,
+#recall {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #606F89;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.aline {
+    display: flex;
+    justify-content: space-between;
 }
 
 .validate {
     border-color: green;
 }
 
+input,
+textarea,
+select {
+    outline: none;
+}
+
 #notification {
     position: absolute;
-    width: 40%;
-    top: 60%;
-    height: 15%;
-    right: 300px;
+    width: 36%;
+    top: 33%;
+    height: 34%;
+    right: 324px;
     background: #c1b1a9;
     padding: 30px 9px;
     border: 11px #5b5555 solid;
@@ -61,16 +84,18 @@ body {
     position: relative;
 }
 
-form {
+#form {
     display: flex;
     flex-direction: column;
     padding: 20px 0 20px 30px;
     gap: 8px;
+    display: none;
 }
 
 .main {
     background-color: #FFFFFF;
     border: #000000 solid 2px;
+    margin-top: 10px;
 }
 
 .icon-search {

@@ -204,7 +204,6 @@ let fieldStatus = document.getElementById('statusCustomer');
 let errorFields = Array.from(document.querySelectorAll('.error'));
 let inputFields = Array.from(document.querySelectorAll('.fieldInput'));
 let submit = document.getElementById('submit');
-
 let body = document.getElementById('body')
 let tbody = document.getElementById('contentOfTable');
 let customersDataLength = document.getElementById('length');
@@ -220,10 +219,14 @@ let rowsPerPage = document.getElementById('rows-page');
 let selectRows = document.getElementById('rows-select');
 let nextPage = document.getElementById('arrow-right');
 let previousPage = document.getElementById('arrow-left');
-
+let displayed = document.getElementById("displayed");
+let recall = document.getElementById("recall");
+let counterBox = [];
 let orderToSort;
 let numRows = 5;
 let currentPage = 0;
+
+getLocalStorage()
 
 function createNewCustomer(customer) {
     let newRow = document.createElement('tr');
@@ -280,13 +283,13 @@ function createNewCustomer(customer) {
     removeIcon.className = 'cta';
     removeIcon.innerHTML = '<div><img src="./images/basket.png" class="cta-img" alt="basket"></div>';
     removeIcon.addEventListener('click', () => {
+        customersData = JSON.parse(localStorage.getItem('boxStorage'));
         if (confirm("Do you want to remove it !!")) {
             customersData = removeCustomers(customersData, customer.id);
         }
         renderCustomers(customersData)
-
+        localStorage.setItem('boxStorage', JSON.stringify(customersData))
     })
-
     newRow.append(balance, deposit, statusBtn, removebox);
     return newRow
 };
@@ -301,7 +304,6 @@ function searchCustomers(customoersToSearch) {
                 return true
             }
         }
-
         return false
     })
     return valuesSearched;
@@ -426,26 +428,34 @@ previousPage.addEventListener('click', () => {
     renderCustomers(customersData)
 });
 
+displayed.addEventListener('click', () => {
+    form.style.display = "flex"
+});
+
 let number = "^[0-9]+$";
-let string = "^[a-zA-Z]+$";
+let string = "^[a-z A-Z]+$";
 
-function valid(input) {
+function valid(input, index) {
     input.nextElementSibling.innerText = ""
+    input.addEventListener("blur", () => updateProgress(index));
+    input.addEventListener("keyup", () => updateProgress(index));
     input.classList.add("validate");
+};
 
-
+function validSelect(input, index) {
+    input.nextElementSibling.innerText = ""
+    input.addEventListener("click", () => updateProgress(index));
+    input.classList.add("validate");
 };
 
 function mustBeUnique(input, data) {
     input.nextElementSibling.innerText = `customer ${data} already exists`;
     input.classList.remove("validate");
-
 };
 
 function isRequired(input, data) {
     input.nextElementSibling.innerText = `customer ${data} is required`;
     input.classList.remove("validate");
-
 };
 
 function lengthOfData(input, data, length) {
@@ -456,101 +466,89 @@ function lengthOfData(input, data, length) {
 function typeOfData(input, data, type) {
     input.nextElementSibling.innerText = `customer ${data} should be ${type}`;
     input.classList.remove("validate");
-
 };
 
-creatProgressBar();
-
-function checkName(input) {
+function checkName(input, index) {
     let existsName = customersData.some(customer => customer.name == input.value);
     if (input.value === "") {
         isRequired(input, "name");
-
     } else if (existsName) {
         mustBeUnique(input, "name");
-
     } else if (!input.value.match(string)) {
         typeOfData(input, "name", "string");
-
     } else {
-        valid(input)
-
+        valid(input, index)
     }
 };
 
-function checkId(input) {
+function checkId(input, index) {
     let existsId = customersData.some(customer => customer.id === input.value);
     if (input.value === "") {
         isRequired(input, "id");
     } else if (!input.value.match(number)) {
         typeOfData(input, "id", "number");
-    } else if (input.value.length != 10 && input.value.length > 0) {
+    } else if (input.value.length < 10 && input.value.length > 0) {
         lengthOfData(input, "number", "10 digits");
     } else if (existsId) {
         mustBeUnique(input, "id");
     } else {
-        valid(input);
-
+        valid(input, index);
     }
 };
 
-function checkDesc(input) {
+function checkDesc(input, index) {
     if (input.value === "") {
         isRequired(input, "description");
-    } else if (input.value.length <= 10) {
+    } else if (input.value.length < 10) {
         lengthOfData(input, "descreption", "up to 10 charcters");
     } else {
-        valid(input, 2);
+        valid(input, index);
     }
 };
 
-function checkRate(input) {
+function checkRate(input, index) {
     if (input.value === "") {
         isRequired(input, "Rate");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Rate", "number");
     } else {
-        valid(input);
+        valid(input, index);
     }
 };
 
-function checkBalance(input) {
+function checkBalance(input, index) {
     if (input.value === "") {
         isRequired(input, "Balance");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Balance", "number");
     } else {
-        valid(input);
+        valid(input, index);
     }
 };
 
-function checkDeposit(input) {
+function checkDeposit(input, index) {
     if (input.value === "") {
         isRequired(input, "Deposit");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Deposit", "number");
     } else {
-        valid(input);
+        valid(input, index);
     }
 };
 
-
-
-function checkStatus(input) {
-    if (input.value === "") {
-        isRequired(input, "Status");
-    } else {
-
-        valid(input);
-
-    }
-};
-
-function checkCurrency(input) {
-    if (input.value === "") {
+function checkCurrency(input, index) {
+    if (input.value === "currency") {
         isRequired(input, "Currency");
     } else {
-        valid(input);
+        validSelect(input, index);
+    }
+};
+
+function checkStatus(input, index) {
+    if (input.value === "status") {
+        isRequired(input, "Status");
+    } else {
+        validSelect(input, index);
     }
 };
 
@@ -561,58 +559,46 @@ function creatProgressBar() {
     <span id='value'>0%</span>`;
     form.append(container);
 };
-
-let counterBox = []
-
+creatProgressBar()
 
 function updateProgress(i) {
     let validate = inputFields[i].classList.contains('validate')
     if (validate == true) {
-        if (counterBox[counterBox.indexOf(i)] !== i) {
+        if (counterBox.includes(i) === false) {
             counterBox.push(i)
         }
     } else {
-        counterBox.splice(counterBox.indexOf(i), 1)
+        const indexFounded = counterBox.indexOf(i);
+        if (indexFounded > -1) {
+            counterBox.splice(indexFounded, 1);
+        }
     }
     myProgress()
-    console.log(counterBox)
 };
+
 const progressBar = document.getElementById("progress-bar");
 const value = document.getElementById("value");
 
 function myProgress() {
-
     let result = (100 / 8) * counterBox.length
     result = Math.round(result);
     progressBar.style.width = `${result}%`;
     value.textContent = `${result}%`
 }
 
+function emptyBar(index) {
+    progressBar.style.width = `${index}%`;
+    value.textContent = `${index}%`
+}
 
-fieldName.addEventListener("keyup", () => checkName(fieldName));
-fieldName.addEventListener("blur", () => updateProgress(0));
-fieldNumber.addEventListener("keyup", () => checkId(fieldNumber));
-fieldNumber.addEventListener("blur", () => updateProgress(1));
-fieldDescription.addEventListener("keyup", () => checkDesc(fieldDescription));
-fieldDescription.addEventListener("blur", () => updateProgress(2));
-fieldCurrency.addEventListener("change", () => checkCurrency(fieldCurrency));
-fieldCurrency.addEventListener("blur", () => updateProgress(3));
-fieldRate.addEventListener("keyup", () => checkRate(fieldRate));
-fieldRate.addEventListener("blur", () => updateProgress(4));
-fieldBalance.addEventListener("keyup", () => checkBalance(fieldBalance));
-fieldBalance.addEventListener("blur", () => updateProgress(5));
-fieldDeposit.addEventListener("keyup", () => checkDeposit(fieldDeposit));
-fieldDeposit.addEventListener("blur", () => updateProgress(6));
-
-fieldStatus.addEventListener("change", () => {
-        checkStatus(fieldStatus)
-        updateProgress(7);
-
-    }
-
-
-);
-fieldStatus.addEventListener("blur", () => updateProgress(7));
+fieldName.addEventListener("keyup", () => checkName(fieldName, 0));
+fieldNumber.addEventListener("keyup", () => checkId(fieldNumber, 1));
+fieldDescription.addEventListener("keyup", () => checkDesc(fieldDescription, 2));
+fieldCurrency.addEventListener("change", () => checkCurrency(fieldCurrency, 3));
+fieldRate.addEventListener("keyup", () => checkRate(fieldRate, 4));
+fieldBalance.addEventListener("keyup", () => checkBalance(fieldBalance, 5));
+fieldDeposit.addEventListener("keyup", () => checkDeposit(fieldDeposit, 6));
+fieldStatus.addEventListener("change", () => checkStatus(fieldStatus, 7));
 
 let messageNotif = () => {
     let notification = document.createElement('div');
@@ -624,6 +610,9 @@ let messageNotif = () => {
         notification.style.display = "none";
     }, 5000)
 }
+recall.addEventListener('click', () => {
+    storeLocalStorage(customersData);
+})
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -635,9 +624,8 @@ form.addEventListener('submit', (e) => {
     checkBalance(fieldBalance);
     checkDeposit(fieldDeposit);
     checkStatus(fieldStatus);
-
     if (inputFields.every(field => field.classList.contains("validate"))) {
-        customersData.unshift({
+        let myObj = {
             name: fieldName.value,
             id: Number(fieldNumber.value),
             description: fieldDescription.value,
@@ -646,16 +634,26 @@ form.addEventListener('submit', (e) => {
             deposit: Number(fieldDeposit.value).toFixed(2),
             balance: Number(fieldBalance.value).toFixed(2),
             status: fieldStatus.value
-        });
-
+        }
+        customersData.unshift(myObj);
         inputFields.forEach(field => field.classList.remove("validate"));
         inputFields.forEach(field => field.value = "");
         messageNotif();
-        progressBar.style.width = `${0}%`;
-        value.textContent = `${0}%`
         renderCustomers(customersData);
+        storeLocalStorage(customersData);
     };
-
+    emptyBar(0)
+    form.style.display = "none"
 });
 
+function storeLocalStorage(arr) {
+    localStorage.setItem('boxStorage', JSON.stringify(arr));
+};
+
+function getLocalStorage() {
+    if (localStorage.getItem('boxStorage') !== null) {
+        customersData = JSON.parse(localStorage.getItem('boxStorage'))
+    }
+    renderCustomers(customersData);
+};
 renderCustomers(customersData);

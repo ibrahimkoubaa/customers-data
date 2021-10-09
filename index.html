@@ -14,29 +14,34 @@
 
 <body id="body">
     <div>
+        <div class="aline">
+            <span id="displayed">Add Customer (+)</span>
+            <span id="recall">undo customers    --</span>
+        </div>
         <form id="form">
-            <label for="add-customer">Add Customer</label>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Name" id="nameCustomer" autofocus />
                 <small class="error"></small></div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Number" id="numberCustomer" />
                 <small class="error"></small></div>
             <div class="field"><textarea type="text" class="fieldInput" id="descriptionCustomer" placeholder="Description about customer"></textarea>
                 <small class="error"></small></div>
-            <div class="field"><select class="select fieldInput" id="currencyCustomer">
-                <option value="">currency</option>
-                <option value="EUR">INR</option>
-                <option value="INR">EUR</option>
-                <option value="USD">USD</option>
+            <div class="field">
+                <select form="form" class="select fieldInput" id="currencyCustomer">
+                    <option selected disabled hidden>currency</option>
+                    <option value="EUR">INR</option>
+                    <option value="INR">EUR</option>
+                    <option value="USD">USD</option>
                 </select>
-                <small class="error"></small></div>
+                <small class="error"></small>
+            </div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Rate" id="rateCustomer" />
                 <small class="error"></small></div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Balance" id="balanceCustomer" />
                 <small class="error"></small></div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer deposit" id="depositCustomer" />
                 <small class="error"></small></div>
-            <div class="field"><select class="select fieldInput" id="statusCustomer">
-                <option value="">status</option>
+            <div class="field"><select form="form" class="select fieldInput" id="statusCustomer">
+                <option selected disabled hidden >status</option>
                 <option value="active">active</option>
                 <option value="inactive">inactive</option>
                 </select>
