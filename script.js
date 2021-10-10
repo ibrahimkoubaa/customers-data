@@ -7,7 +7,6 @@ let customersData = [{
     balance: "00.00",
     deposit: "500.00",
     status: "active"
-
 }, {
     name: "Ibrahim koubaa",
     id: 122156748,
@@ -17,7 +16,6 @@ let customersData = [{
     balance: "00.00",
     deposit: "500.00",
     status: "active"
-
 }, {
     name: "Soukainax udouh",
     id: 57645458755,
@@ -220,12 +218,12 @@ let selectRows = document.getElementById('rows-select');
 let nextPage = document.getElementById('arrow-right');
 let previousPage = document.getElementById('arrow-left');
 let displayed = document.getElementById("displayed");
-let recall = document.getElementById("recall");
+let cancel = document.getElementById("cancel");
 let counterBox = [];
 let orderToSort;
+
 let numRows = 5;
 let currentPage = 0;
-
 getLocalStorage()
 
 function createNewCustomer(customer) {
@@ -288,7 +286,8 @@ function createNewCustomer(customer) {
             customersData = removeCustomers(customersData, customer.id);
         }
         renderCustomers(customersData)
-        localStorage.setItem('boxStorage', JSON.stringify(customersData))
+        storeLocalStorage(customersData)
+
     })
     newRow.append(balance, deposit, statusBtn, removebox);
     return newRow
@@ -362,12 +361,10 @@ function removeCustomers(sourceOfCustomers, customerToRemove) {
 
 function renderCustomers(customersToRender) {
     tbody.innerHTML = "";
-
     let customersSearched = searchCustomers(customersToRender);
     let customersStatusSorted = sortCustomersByStatus(customersSearched, orderToSort);
     let customersNameSorted = sortCustomersByName(customersStatusSorted, orderToSort);
     let displayRows = customersNameSorted.slice(currentPage * numRows, (currentPage + 1) * numRows);
-
     displayRows.forEach((customer) => {
         let row = createNewCustomer(customer);
         tbody.append(row);
@@ -415,7 +412,7 @@ sortByStatus.addEventListener('click', () => {
 });
 
 nextPage.addEventListener('click', () => {
-    if ((currentPage + 1) <= customersData.length / (numRows)) {
+    if ((currentPage + 1) < customersData.length / (numRows)) {
         currentPage += 1;
     }
     renderCustomers(customersData)
@@ -430,6 +427,18 @@ previousPage.addEventListener('click', () => {
 
 displayed.addEventListener('click', () => {
     form.style.display = "flex"
+    displayed.style.display = "none"
+
+});
+creatProgressBar()
+cancel.addEventListener('click', () => {
+    inputFields.forEach(field => field.value = "");
+    inputFields.forEach(field => field.nextElementSibling.innerText = "");
+    emptyBar();
+    setTimeout(function() {
+        form.style.display = "none"
+    }, 1200)
+    displayed.style.display = "flex"
 });
 
 let number = "^[0-9]+$";
@@ -487,7 +496,7 @@ function checkId(input, index) {
         isRequired(input, "id");
     } else if (!input.value.match(number)) {
         typeOfData(input, "id", "number");
-    } else if (input.value.length < 10 && input.value.length > 0) {
+    } else if (input.value.length !== 10) {
         lengthOfData(input, "number", "10 digits");
     } else if (existsId) {
         mustBeUnique(input, "id");
@@ -557,9 +566,8 @@ function creatProgressBar() {
     container.id = 'container';
     container.innerHTML = `<div id='progress-bar'></div>
     <span id='value'>0%</span>`;
-    form.append(container);
+    form.prepend(container);
 };
-creatProgressBar()
 
 function updateProgress(i) {
     let validate = inputFields[i].classList.contains('validate')
@@ -586,18 +594,18 @@ function myProgress() {
     value.textContent = `${result}%`
 }
 
-function emptyBar(index) {
-    progressBar.style.width = `${index}%`;
-    value.textContent = `${index}%`
+function emptyBar() {
+    counterBox = []
+    myProgress()
 }
 
-fieldName.addEventListener("keyup", () => checkName(fieldName, 0));
-fieldNumber.addEventListener("keyup", () => checkId(fieldNumber, 1));
-fieldDescription.addEventListener("keyup", () => checkDesc(fieldDescription, 2));
+fieldName.addEventListener("input", () => checkName(fieldName, 0));
+fieldNumber.addEventListener("input", () => checkId(fieldNumber, 1));
+fieldDescription.addEventListener("input", () => checkDesc(fieldDescription, 2));
 fieldCurrency.addEventListener("change", () => checkCurrency(fieldCurrency, 3));
-fieldRate.addEventListener("keyup", () => checkRate(fieldRate, 4));
-fieldBalance.addEventListener("keyup", () => checkBalance(fieldBalance, 5));
-fieldDeposit.addEventListener("keyup", () => checkDeposit(fieldDeposit, 6));
+fieldRate.addEventListener("input", () => checkRate(fieldRate, 4));
+fieldBalance.addEventListener("input", () => checkBalance(fieldBalance, 5));
+fieldDeposit.addEventListener("input", () => checkDeposit(fieldDeposit, 6));
 fieldStatus.addEventListener("change", () => checkStatus(fieldStatus, 7));
 
 let messageNotif = () => {
@@ -609,10 +617,9 @@ let messageNotif = () => {
     setTimeout(function() {
         notification.style.display = "none";
     }, 5000)
-}
-recall.addEventListener('click', () => {
-    storeLocalStorage(customersData);
-})
+    form.style.display = "none"
+    displayed.style.display = "flex"
+};
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -640,10 +647,10 @@ form.addEventListener('submit', (e) => {
         inputFields.forEach(field => field.value = "");
         messageNotif();
         renderCustomers(customersData);
+        //form.style.display = "none"
         storeLocalStorage(customersData);
+        emptyBar()
     };
-    emptyBar(0)
-    form.style.display = "none"
 });
 
 function storeLocalStorage(arr) {

@@ -13,11 +13,8 @@
 </head>
 
 <body id="body">
-    <div>
-        <div class="aline">
-            <span id="displayed">Add Customer (+)</span>
-            <span id="recall">undo customers    --</span>
-        </div>
+    <div class="aline">
+        <span id="displayed">Add Customer <img src="./images/add-icon.png" alt=""></span>
         <form id="form">
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Name" id="nameCustomer" autofocus />
                 <small class="error"></small></div>
@@ -46,9 +43,10 @@
                 <option value="inactive">inactive</option>
                 </select>
                 <small class="error"></small></div>
-            <div><input id="submit" value="Submit" type="submit"></div>
+            <div class="group-btn"><input id="submit" value="Submit" type="submit"><input id="Update" value="Update" type="submit"><input id="cancel" value="Cancel" type="button"></div>
         </form>
     </div>
+
     <div class="main">
         <div class="search-header">
             <input class="field-search" type="text" name="search" id="search" placeholder="Search" />
@@ -112,7 +110,7 @@
                     </select>
                 </div>
                 <span id="rows-page"></span>
-                <div class="group-btn">
+                <div class="group-btn-table">
                     <button><div id="arrow-left"></div></button>
                     <button><div id="arrow-right"></div></button>
                 </div>

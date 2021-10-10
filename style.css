@@ -6,13 +6,12 @@
 }
 
 body {
-    margin: 30px auto;
+    margin: 0 auto;
     max-width: 1020px;
     position: relative;
 }
 
-#displayed,
-#recall {
+#displayed {
     font-weight: 700;
     font-size: 20px;
     line-height: 15px;
@@ -20,12 +19,17 @@ body {
     color: #606F89;
     text-decoration: underline;
     cursor: pointer;
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
 }
 
 .aline {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin: 10px 0;
 }
 
 .validate {
@@ -69,7 +73,19 @@ select {
     line-height: 17px;
 }
 
-#submit {
+.group-btn {
+    display: flex;
+    gap: 8%;
+}
+
+.group-btn-table {
+    gap: 50px;
+    display: flex;
+}
+
+#submit,
+#cancel,
+#Update {
     font-size: 14px;
     line-height: 12px;
     letter-spacing: 0.5px;
@@ -79,23 +95,18 @@ select {
     border: 1px solid #606F89;
     border-radius: 11px;
     padding: 10px 16px;
-    width: auto;
-    left: 121px;
-    position: relative;
 }
 
 #form {
     display: flex;
     flex-direction: column;
-    padding: 20px 0 20px 30px;
-    gap: 8px;
+    gap: 10px;
     display: none;
 }
 
 .main {
     background-color: #FFFFFF;
     border: #000000 solid 2px;
-    margin-top: 10px;
 }
 
 .icon-search {
@@ -360,6 +371,7 @@ footer {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #606F89;
+    align-self: center;
 }
 
 .right-footer {
@@ -370,6 +382,7 @@ footer {
     line-height: 15px;
     letter-spacing: 0.05em;
     color: #606F89;
+    align-items: center;
 }
 
 #arrow-right {
@@ -394,11 +407,6 @@ button {
     border: none;
 }
 
-.group-btn {
-    gap: 50px;
-    display: flex;
-}
-
 .selectionRow {
     font-style: normal;
     font-weight: 600;
@@ -409,11 +417,12 @@ button {
 }
 
 #container {
-    height: 25px;
+    height: 36px;
     background-color: #cccc;
     position: relative;
     border-radius: 5px;
     overflow: hidden;
+    width: 300px;
 }
 
 #progress-bar {
@@ -421,13 +430,13 @@ button {
     height: 100%;
     transition: all 0.8s;
     border-radius: 5%;
-    background-color: #d956eb
+    background: linear-gradient(#e66465, #9198e5);
 }
 
 #value {
     position: absolute;
-    top: 10%;
-    right: 5px;
+    top: 21%;
+    right: 1px;
     transform: translate(-50%);
     color: #000000;
 }
