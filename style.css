@@ -33,21 +33,28 @@ body {
 }
 
 .validate {
-    border-color: green;
+    padding: 8px 10px;
+    background-color: #DAE1EC;
+    border-radius: 4px;
+    width: 300px;
+    color: #2E3B52;
+    font-size: 14px;
+    line-height: 17px;
+    border: 1px solid #17ad03;
 }
 
-input,
-textarea,
-select {
-    outline: none;
+.border {
+    border: 2px solid #17ad03;
+    box-shadow: -1px -1px 4px 3px #17ad03;
 }
 
+;
 #notification {
     position: absolute;
-    width: 36%;
-    top: 33%;
-    height: 34%;
-    right: 324px;
+    width: 33%;
+    top: 72%;
+    height: 16%;
+    right: 34%;
     background: #c1b1a9;
     padding: 30px 9px;
     border: 11px #5b5555 solid;
@@ -84,8 +91,19 @@ select {
 }
 
 #submit,
-#cancel,
-#Update {
+#cancel {
+    font-size: 14px;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    background: #3d3a3a;
+    color: #ffffff;
+    border: 1px solid #606F89;
+    border-radius: 11px;
+    padding: 10px 16px;
+}
+
+#update {
     font-size: 14px;
     line-height: 12px;
     letter-spacing: 0.5px;
@@ -155,23 +173,33 @@ label {
     padding: 4px 0 0 4px;
 }
 
+.error-message {
+    padding: 8px 10px;
+    background-color: #DAE1EC;
+    border-radius: 4px;
+    width: 300px;
+    color: #2E3B52;
+    font-size: 14px;
+    line-height: 17px;
+    border: 1px solid #f80b0b;
+}
+
 .field-search,
 .fieldInput {
     padding: 8px 10px;
     background-color: #DAE1EC;
     border-radius: 4px;
-    border-color: transparent;
     width: 300px;
     color: #2E3B52;
     font-size: 14px;
     line-height: 17px;
+    border: none;
 }
 
 .select {
     padding: 8px 10px;
     background-color: #DAE1EC;
     border-radius: 4px;
-    border: none;
     width: min-content;
     color: #2E3B52;
     font-size: 14px;
@@ -206,7 +234,12 @@ td {
 }
 
 .delete {
-    padding-right: 30px;
+    padding-left: 12px;
+}
+
+.edit-delete {
+    gap: 14px;
+    display: flex;
 }
 
 #row-header {

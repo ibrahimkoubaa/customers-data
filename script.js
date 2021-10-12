@@ -219,6 +219,9 @@ let nextPage = document.getElementById('arrow-right');
 let previousPage = document.getElementById('arrow-left');
 let displayed = document.getElementById("displayed");
 let cancel = document.getElementById("cancel");
+let update = document.getElementById("update");
+let edit = document.querySelector(".edit");
+
 let counterBox = [];
 let orderToSort;
 
@@ -240,9 +243,9 @@ function createNewCustomer(customer) {
     balance.append(divBalance);
     let spanBalnce = document.createElement('span');
     if (customer.balance > 0) {
-        spanBalnce.className = 'balance-green';
+        spanBalnce.className = 'balance-green balance-value';
     } else if (customer.balance < 0) {
-        spanBalnce.className = 'balance-red';
+        spanBalnce.className = 'balance-red balance-value';
     } else spanBalnce.className = "balance";
     spanBalnce.textContent = customer.balance;
 
@@ -267,10 +270,10 @@ function createNewCustomer(customer) {
     let statusBtn = document.createElement('td');
     statusBtn.className = "btn";
     let buttonActive = document.createElement('button');
-    buttonActive.className = "cta-active";
+    buttonActive.className = "cta-active cta-inactive-active";
     buttonActive.textContent = customer.status;
     if (buttonActive.innerText === 'inactive') {
-        buttonActive.className = "cta-inactive";
+        buttonActive.className = "cta-inactive cta-inactive-active";
     };
     statusBtn.append(buttonActive);
 
@@ -279,19 +282,19 @@ function createNewCustomer(customer) {
     let removeIcon = document.createElement('button');
     removebox.append(removeIcon);
     removeIcon.className = 'cta';
-    removeIcon.innerHTML = '<div><img src="./images/basket.png" class="cta-img" alt="basket"></div>';
-    removeIcon.addEventListener('click', () => {
+    removeIcon.innerHTML = '<div class="edit-delete"><img src="./images/basket.png" class="cta-img" alt="basket" width="20px" height="20px"><img src="./images/edit.png" class="edit" alt="edit" width="20px" height="20px"></div>';
+    removeIcon.querySelector('.cta-img').addEventListener('click', () => {
         customersData = JSON.parse(localStorage.getItem('boxStorage'));
         if (confirm("Do you want to remove it !!")) {
             customersData = removeCustomers(customersData, customer.id);
         }
         renderCustomers(customersData)
         storeLocalStorage(customersData)
-
     })
     newRow.append(balance, deposit, statusBtn, removebox);
     return newRow
 };
+
 
 function searchCustomers(customoersToSearch) {
     let valueSearchFor = inputSearch.value.toLowerCase();
@@ -360,6 +363,7 @@ function removeCustomers(sourceOfCustomers, customerToRemove) {
 };
 
 function renderCustomers(customersToRender) {
+
     tbody.innerHTML = "";
     let customersSearched = searchCustomers(customersToRender);
     let customersStatusSorted = sortCustomersByStatus(customersSearched, orderToSort);
@@ -373,6 +377,7 @@ function renderCustomers(customersToRender) {
     let numOfRowsPerPage = (currentPage + 1) * numRows;
     rowsPerPage.innerHTML = `${currentPage * numRows}  - ${numOfRowsPerPage} of ${customersNameSorted.length}`;
 };
+
 
 inputSearch.addEventListener('keyup', () => renderCustomers(customersData));
 
@@ -427,18 +432,27 @@ previousPage.addEventListener('click', () => {
 
 displayed.addEventListener('click', () => {
     form.style.display = "flex"
+    fieldName.focus()
     displayed.style.display = "none"
+    submit.style.display = 'block'
+    update.style.display = "none"
+    document.querySelector('.group-btn').style.gap = '44%'
 
 });
 creatProgressBar()
+
 cancel.addEventListener('click', () => {
     inputFields.forEach(field => field.value = "");
+    inputFields.forEach(field => field.classList.remove("error-message"));
+    inputFields.forEach(field => field.classList.add("fieldInput"));
     inputFields.forEach(field => field.nextElementSibling.innerText = "");
     emptyBar();
     setTimeout(function() {
         form.style.display = "none"
     }, 1200)
-    displayed.style.display = "flex"
+    setTimeout(function() {
+        displayed.style.display = "flex"
+    }, 1210)
 });
 
 let number = "^[0-9]+$";
@@ -446,40 +460,54 @@ let string = "^[a-z A-Z]+$";
 
 function valid(input, index) {
     input.nextElementSibling.innerText = ""
+    input.addEventListener("select", () => updateProgress(index));
     input.addEventListener("blur", () => updateProgress(index));
-    input.addEventListener("keyup", () => updateProgress(index));
+    input.addEventListener("input", () => updateProgress(index));
+    input.classList.remove("error-message");
+    input.classList.remove("fieldInput");
     input.classList.add("validate");
 };
 
 function validSelect(input, index) {
     input.nextElementSibling.innerText = ""
     input.addEventListener("click", () => updateProgress(index));
+    input.addEventListener("change", () => updateProgress(index));
+    input.classList.remove("error-message");
+    input.classList.remove("fieldInput");
     input.classList.add("validate");
 };
 
 function mustBeUnique(input, data) {
     input.nextElementSibling.innerText = `customer ${data} already exists`;
     input.classList.remove("validate");
+    input.classList.remove("fieldInput");
+    input.classList.add("error-message");
 };
 
 function isRequired(input, data) {
     input.nextElementSibling.innerText = `customer ${data} is required`;
     input.classList.remove("validate");
+    input.classList.remove("fieldInput");
+    input.classList.add("error-message");
 };
 
 function lengthOfData(input, data, length) {
     input.nextElementSibling.innerText = `customer ${data} should be ${length}`;
     input.classList.remove("validate");
+    input.classList.remove("fieldInput");
+    input.classList.add("error-message");
 };
 
 function typeOfData(input, data, type) {
     input.nextElementSibling.innerText = `customer ${data} should be ${type}`;
     input.classList.remove("validate");
+    input.classList.remove("fieldInput");
+    input.classList.add("error-message");
 };
 
 function checkName(input, index) {
     let existsName = customersData.some(customer => customer.name == input.value);
-    if (input.value === "") {
+    if (input.value.trim() === "") {
         isRequired(input, "name");
     } else if (existsName) {
         mustBeUnique(input, "name");
@@ -491,8 +519,8 @@ function checkName(input, index) {
 };
 
 function checkId(input, index) {
-    let existsId = customersData.some(customer => customer.id === input.value);
-    if (input.value === "") {
+    let existsId = customersData.some(customer => customer.id == input.value);
+    if (input.value.trim() === "") {
         isRequired(input, "id");
     } else if (!input.value.match(number)) {
         typeOfData(input, "id", "number");
@@ -506,7 +534,7 @@ function checkId(input, index) {
 };
 
 function checkDesc(input, index) {
-    if (input.value === "") {
+    if (input.value.trim() === "") {
         isRequired(input, "description");
     } else if (input.value.length < 10) {
         lengthOfData(input, "descreption", "up to 10 charcters");
@@ -516,7 +544,7 @@ function checkDesc(input, index) {
 };
 
 function checkRate(input, index) {
-    if (input.value === "") {
+    if (input.value.trim() === "") {
         isRequired(input, "Rate");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Rate", "number");
@@ -526,7 +554,7 @@ function checkRate(input, index) {
 };
 
 function checkBalance(input, index) {
-    if (input.value === "") {
+    if (input.value.trim() === "") {
         isRequired(input, "Balance");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Balance", "number");
@@ -536,7 +564,7 @@ function checkBalance(input, index) {
 };
 
 function checkDeposit(input, index) {
-    if (input.value === "") {
+    if (input.value.trim() === "") {
         isRequired(input, "Deposit");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Deposit", "number");
@@ -546,7 +574,7 @@ function checkDeposit(input, index) {
 };
 
 function checkCurrency(input, index) {
-    if (input.value === "currency") {
+    if (input.value === "") {
         isRequired(input, "Currency");
     } else {
         validSelect(input, index);
@@ -554,7 +582,7 @@ function checkCurrency(input, index) {
 };
 
 function checkStatus(input, index) {
-    if (input.value === "status") {
+    if (input.value === "") {
         isRequired(input, "Status");
     } else {
         validSelect(input, index);
@@ -571,7 +599,7 @@ function creatProgressBar() {
 
 function updateProgress(i) {
     let validate = inputFields[i].classList.contains('validate')
-    if (validate == true) {
+    if (validate === true) {
         if (counterBox.includes(i) === false) {
             counterBox.push(i)
         }
@@ -611,18 +639,36 @@ fieldStatus.addEventListener("change", () => checkStatus(fieldStatus, 7));
 let messageNotif = () => {
     let notification = document.createElement('div');
     notification.id = "notification"
-    notification.innerHTML = `<img src="./images/valid.png" alt="valid" width="50px" height="50px">
-                            <strong class="message">Great</strong> <span class="message2">The form was submitted successfully.</span>`;
+    notification.innerHTML = `<img src="./images/valid.png" alt="valid" width="20px" height="20px"">
+                            <strong class="message">Great</strong> <span class="message2">Customer created successfully.</span>`;
     body.prepend(notification);
+    scroll(0, 500);
+    let row = document.querySelector('.customer-data');
+    row.classList.add('border');
     setTimeout(function() {
         notification.style.display = "none";
-    }, 5000)
-    form.style.display = "none"
-    displayed.style.display = "flex"
+    }, 2500)
+
+    setTimeout(function() {
+            row.classList.remove('border')
+            setTimeout(function() {
+                row.classList.add('border')
+                setTimeout(function() {
+                    row.classList.remove('border')
+                    setTimeout(function() {
+                        row.classList.add('border')
+                        setTimeout(function() {
+                            row.classList.remove('border')
+                        }, 150)
+                    }, 150)
+                }, 150)
+            }, 150)
+        }, 200)
+        //form.style.display = 'none';
+        //displayed.style.display = 'flex'
 };
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+function checkInputs() {
     checkName(fieldName);
     checkId(fieldNumber);
     checkDesc(fieldDescription);
@@ -631,6 +677,14 @@ form.addEventListener('submit', (e) => {
     checkBalance(fieldBalance);
     checkDeposit(fieldDeposit);
     checkStatus(fieldStatus);
+
+}
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    checkInputs();
+
+
+
     if (inputFields.every(field => field.classList.contains("validate"))) {
         let myObj = {
             name: fieldName.value,
@@ -645,13 +699,69 @@ form.addEventListener('submit', (e) => {
         customersData.unshift(myObj);
         inputFields.forEach(field => field.classList.remove("validate"));
         inputFields.forEach(field => field.value = "");
-        messageNotif();
         renderCustomers(customersData);
-        //form.style.display = "none"
         storeLocalStorage(customersData);
+        messageNotif();
         emptyBar()
     };
 });
+
+function sendsValuesToFields(row) {
+    fieldName.value = row.querySelector('.full-name').textContent;
+    fieldNumber.value = row.querySelector('.id').textContent;
+    fieldDescription.value = row.querySelector('.spanDescription').textContent;
+    fieldRate.value = Number(row.querySelector('.spanPrice').textContent).toFixed(0);
+    fieldCurrency.value = row.querySelector('.spanCurrency').textContent;
+    fieldBalance.value = Number(row.querySelector('.balance-value').textContent).toFixed(0);
+    fieldDeposit.value = Number(row.querySelector('.spanDeposit').textContent).toFixed(0);
+    fieldStatus.value = row.querySelector('.cta-inactive-active').textContent;
+    checkName(fieldName, 0);
+    checkId(fieldNumber, 1);
+    checkDesc(fieldDescription, 2);
+    checkCurrency(fieldCurrency, 3);
+    checkRate(fieldRate, 4);
+    checkBalance(fieldBalance, 5);
+    checkDeposit(fieldDeposit, 6);
+    checkStatus(fieldStatus, 7);
+}
+tbody.addEventListener('click', (e) => {
+    if (e.target.className === "edit")
+        if (confirm("Do you want to edit the customer !!")) {
+
+            form.style.display = "flex"
+            fieldName.focus()
+            displayed.style.display = "none"
+            submit.style.display = 'none'
+            update.style.display = "block"
+            document.querySelector('.group-btn').style.gap = '44%'
+            let rowToEdit = e.target.closest("tr")
+            sendsValuesToFields(rowToEdit)
+            if (inputFields.every(field => field.classList.contains("validate"))) {
+                let myObj = {
+                        name: fieldName.value,
+                        id: Number(fieldNumber.value),
+                        description: fieldDescription.value,
+                        currency: fieldCurrency.value,
+                        rate: Number(fieldRate.value).toFixed(2),
+                        deposit: Number(fieldDeposit.value).toFixed(2),
+                        balance: Number(fieldBalance.value).toFixed(2),
+                        status: fieldStatus.value
+                    }
+                    // customersData.unshift(myObj);
+                    // inputFields.forEach(field => field.classList.remove("validate"));
+                    // inputFields.forEach(field => field.value = "");
+                    // renderCustomers(customersData);
+                    // storeLocalStorage(customersData);
+
+
+            }
+            console.log(rowToEdit)
+
+        }
+
+
+})
+
 
 function storeLocalStorage(arr) {
     localStorage.setItem('boxStorage', JSON.stringify(arr));
@@ -663,4 +773,27 @@ function getLocalStorage() {
     }
     renderCustomers(customersData);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 renderCustomers(customersData);

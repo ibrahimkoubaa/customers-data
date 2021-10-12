@@ -14,17 +14,17 @@
 
 <body id="body">
     <div class="aline">
-        <span id="displayed">Add Customer <img src="./images/add-icon.png" alt=""></span>
+        <span id="displayed">Add Customer <img src="./images/add-icon.png" alt="" width="20px" height="20px"></span>
         <form id="form">
-            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Name" id="nameCustomer" autofocus />
+            <div class="field"><input type="text" class="fieldInput" placeholder="Customer Name" id="nameCustomer" />
                 <small class="error"></small></div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Number" id="numberCustomer" />
                 <small class="error"></small></div>
             <div class="field"><textarea type="text" class="fieldInput" id="descriptionCustomer" placeholder="Description about customer"></textarea>
                 <small class="error"></small></div>
             <div class="field">
-                <select form="form" class="select fieldInput" id="currencyCustomer">
-                    <option selected disabled hidden>currency</option>
+                <select class="select fieldInput" id="currencyCustomer">
+                    <option value="" selected disabled hidden>Currency</option>
                     <option value="EUR">INR</option>
                     <option value="INR">EUR</option>
                     <option value="USD">USD</option>
@@ -37,13 +37,13 @@
                 <small class="error"></small></div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer deposit" id="depositCustomer" />
                 <small class="error"></small></div>
-            <div class="field"><select form="form" class="select fieldInput" id="statusCustomer">
-                <option selected disabled hidden >status</option>
+            <div class="field"><select class="select fieldInput" id="statusCustomer">
+                <option value="" selected disabled hidden>Status</option>
                 <option value="active">active</option>
                 <option value="inactive">inactive</option>
                 </select>
                 <small class="error"></small></div>
-            <div class="group-btn"><input id="submit" value="Submit" type="submit"><input id="Update" value="Update" type="submit"><input id="cancel" value="Cancel" type="button"></div>
+            <div class="group-btn"><input id="submit" value="Submit" type="submit"><input id="update" value="update" type="submit"><input id="cancel" value="Cancel" type="button"></div>
         </form>
     </div>
 
