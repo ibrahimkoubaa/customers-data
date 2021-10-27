@@ -1,6 +1,6 @@
 let customersData = [{
     name: "Ibrahim kouxbaa",
-    id: 122156785648,
+    id: 1221567856,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
     currency: "INR",
@@ -9,7 +9,7 @@ let customersData = [{
     status: "active"
 }, {
     name: "Ibrahim koubaa",
-    id: 122156748,
+    id: 1221567480,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
     currency: "INR",
@@ -18,7 +18,7 @@ let customersData = [{
     status: "active"
 }, {
     name: "Soukainax udouh",
-    id: 57645458755,
+    id: 5764545875,
     description: "Lorem ibra dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
@@ -27,7 +27,7 @@ let customersData = [{
     status: "inactive"
 }, {
     name: "Ahmed Oudwouh",
-    id: 5754555424574,
+    id: 5754555424,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
@@ -36,7 +36,7 @@ let customersData = [{
     status: "active"
 }, {
     name: "Saad Koxubaa",
-    id: 125656448,
+    id: 4125656448,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
     currency: "INR",
@@ -45,7 +45,7 @@ let customersData = [{
     status: "inactive"
 }, {
     name: "Abdellaxxh Oudouh",
-    id: 576448755,
+    id: 4576448755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
@@ -54,7 +54,7 @@ let customersData = [{
     status: "inactive"
 }, {
     name: "Khalid Ouwdouh",
-    id: 575456424574,
+    id: 5754564245,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
@@ -63,7 +63,7 @@ let customersData = [{
     status: "inactive"
 }, {
     name: "Youwness Oudouh",
-    id: 576454678755,
+    id: 6454678755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
@@ -72,7 +72,7 @@ let customersData = [{
     status: "inactive"
 }, {
     name: "Mounia Mekxxrane",
-    id: 57545424574,
+    id: 5754542475,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
@@ -81,7 +81,7 @@ let customersData = [{
     status: "inactive"
 }, {
     name: "Abdelhadi Oudxxouh",
-    id: 576658755,
+    id: 5576658755,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "80.00",
     currency: "INR",
@@ -99,7 +99,7 @@ let customersData = [{
     status: "inactive"
 }, {
     name: "Ibrahim koxxubaa",
-    id: 122156748,
+    id: 5122156748,
     description: "Lorem ipsum dolor sit amet, consectetur...",
     rate: "70.00",
     currency: "INR",
@@ -107,87 +107,6 @@ let customersData = [{
     deposit: "500.00",
     status: "active"
 
-}, {
-    name: "Soukaina Oudouh",
-    id: 5764545458755,
-    description: "Lorem ibra dolor sit amet, consectetur...",
-    rate: "80.00",
-    currency: "INR",
-    balance: " 270.00",
-    deposit: "500.00",
-    status: "inactive"
-}, {
-    name: "Ahmed Oudouh",
-    id: 575454244465544574,
-    description: "Lorem ipsum dolor sit amet, consectetur...",
-    rate: "80.00",
-    currency: "INR",
-    balance: "170.00",
-    deposit: "500.00",
-    status: "active"
-}, {
-    name: "Saad Koubaa",
-    id: 12565648,
-    description: "Lorem ipsum dolor sit amet, consectetur...",
-    rate: "70.00",
-    currency: "INR",
-    balance: "-270.00",
-    deposit: "500.00",
-    status: "inactive"
-}, {
-    name: "Abdellah Oudouh",
-    id: 576458748755,
-    description: "Lorem ipsum dolor sit amet, consectetur...",
-    rate: "80.00",
-    currency: "INR",
-    balance: "270.00",
-    deposit: "500.00",
-    status: "inactive"
-}, {
-    name: "Khalid Oudouh",
-    id: 575456546424574,
-    description: "Lorem ipsum dolor sit amet, consectetur...",
-    rate: "80.00",
-    currency: "INR",
-    balance: "170.00",
-    deposit: "500.00",
-    status: "inactive"
-}, {
-    name: "Youness Oudouh",
-    id: 57645467868755,
-    description: "Lorem ipsum dolor sit amet, consectetur...",
-    rate: "80.00",
-    currency: "INR",
-    balance: "0.00",
-    deposit: "500.00",
-    status: "inactive"
-}, {
-    name: "Mounia Mekrane",
-    id: 57545566424574,
-    description: "Lorem ipsum dolor sit amet, consectetur...",
-    rate: "80.00",
-    currency: "INR",
-    balance: "170.00",
-    deposit: "500.00",
-    status: "inactive"
-}, {
-    name: "Abdelhadi Oudouh",
-    id: 5764545658755,
-    description: "Lorem ipsum dolor sit amet, consectetur...",
-    rate: "80.00",
-    currency: "INR",
-    balance: "270.00",
-    deposit: "500.00",
-    status: "inactive"
-}, {
-    name: "Azouz Mekrane",
-    id: 575454564424574,
-    description: "Lorem ipsum dolor sit amet, consectetur...",
-    rate: "80.00",
-    currency: "INR",
-    balance: "-170.00",
-    deposit: "500.00",
-    status: "inactive"
 }];
 
 let form = document.getElementById('form');
@@ -220,19 +139,29 @@ let previousPage = document.getElementById('arrow-left');
 let displayed = document.getElementById("displayed");
 let cancel = document.getElementById("cancel");
 let update = document.getElementById("update");
-let edit = document.querySelector(".edit");
+let edit = document.getElementById("edit");
+let main = document.querySelector('.main')
+let stop = document.querySelector('.stop')
+let cancelForUpdate = document.getElementById('cancel2');
+let groupBtn = document.querySelector('.group-btn')
+var inbexOfEditCustomer;
+var customerToEdit;
+let number = "^[0-9/-]+$";
+let string = "^[a-z A-Z]+$";
 
 let counterBox = [];
 let orderToSort;
 
 let numRows = 5;
 let currentPage = 0;
+
 getLocalStorage()
+
 
 function createNewCustomer(customer) {
     let newRow = document.createElement('tr');
-    newRow.classList = "customer-data";
-    newRow.innerHTML = `<td class="checkbox"><input type="checkbox" class="check"></td>
+    newRow.classList = "customer-data customer-data1";
+    newRow.innerHTML = `<td class="checkbox"><input type="checkbox" class="check" id="${customer.id}"></td>
             <td class="name"><div class="divName"><span class="full-name">${customer.name}</span><span class="id">${customer.id}</span></div></td>
             <td class="description"><span class="spanDescription">${customer.description}</span></td>
             <td class="rate"><div class="divRate"><span class="spanPrice">${customer.rate}</span><span class="spanCurrency">${customer.currency}</span></div></td>`;
@@ -242,15 +171,16 @@ function createNewCustomer(customer) {
     divBalance.className = "divBalance";
     balance.append(divBalance);
     let spanBalnce = document.createElement('span');
+    spanBalnce.className = "balance-value";
     if (customer.balance > 0) {
         spanBalnce.className = 'balance-green balance-value';
     } else if (customer.balance < 0) {
         spanBalnce.className = 'balance-red balance-value';
-    } else spanBalnce.className = "balance";
+    }
     spanBalnce.textContent = customer.balance;
 
     let spanCurrency2 = document.createElement('span');
-    spanCurrency2.className = "spanCurrency";
+
     spanCurrency2.textContent = customer.currency
     divBalance.append(spanBalnce, spanCurrency2);
 
@@ -262,10 +192,10 @@ function createNewCustomer(customer) {
     let spanDeposit = document.createElement('span');
     spanDeposit.className = "spanDeposit";
     spanDeposit.textContent = customer.deposit;
-    let spanCurrency3 = document.createElement('span');
-    spanCurrency3.className = "spanCurrency";
-    spanCurrency3.textContent = customer.currency
-    divDeposit.append(spanDeposit, spanCurrency3);
+    let spanCurrency1 = document.createElement('span');
+
+    spanCurrency1.textContent = customer.currency
+    divDeposit.append(spanDeposit, spanCurrency1);
 
     let statusBtn = document.createElement('td');
     statusBtn.className = "btn";
@@ -282,16 +212,23 @@ function createNewCustomer(customer) {
     let removeIcon = document.createElement('button');
     removebox.append(removeIcon);
     removeIcon.className = 'cta';
-    removeIcon.innerHTML = '<div class="edit-delete"><img src="./images/basket.png" class="cta-img" alt="basket" width="20px" height="20px"><img src="./images/edit.png" class="edit" alt="edit" width="20px" height="20px"></div>';
+    removeIcon.innerHTML = '<div class="edit-delete"><img src="./images/basket.png" class="cta-img" alt="basket" width="20px" height="20px"><img src="./images/edit.png" id="edit" alt="edit" width="20px" height="20px"></div>';
     removeIcon.querySelector('.cta-img').addEventListener('click', () => {
-        customersData = JSON.parse(localStorage.getItem('boxStorage'));
+        //getLocalStorage()
         if (confirm("Do you want to remove it !!")) {
             customersData = removeCustomers(customersData, customer.id);
+            if (returnIndex > customersData.length) {
+                currentPage -= 1
+            }
+            renderCustomers(customersData)
+            storeLocalStorage(customersData)
+
         }
-        renderCustomers(customersData)
-        storeLocalStorage(customersData)
+
     })
+
     newRow.append(balance, deposit, statusBtn, removebox);
+    newRow.id = customer.id
     return newRow
 };
 
@@ -359,11 +296,13 @@ function getActiveCustomers(allCustomers, status) {
 };
 
 function removeCustomers(sourceOfCustomers, customerToRemove) {
+
     return sourceOfCustomers.filter(customer => customer.id !== customerToRemove)
 };
 
-function renderCustomers(customersToRender) {
+let returnIndex;
 
+function renderCustomers(customersToRender) {
     tbody.innerHTML = "";
     let customersSearched = searchCustomers(customersToRender);
     let customersStatusSorted = sortCustomersByStatus(customersSearched, orderToSort);
@@ -373,11 +312,13 @@ function renderCustomers(customersToRender) {
         let row = createNewCustomer(customer);
         tbody.append(row);
     });
-    getActiveCustomers(customersNameSorted, 'active');
-    let numOfRowsPerPage = (currentPage + 1) * numRows;
-    rowsPerPage.innerHTML = `${currentPage * numRows}  - ${numOfRowsPerPage} of ${customersNameSorted.length}`;
-};
 
+    getActiveCustomers(customersNameSorted, 'active');
+    let numOfRowsPerPage = (currentPage + 1) * numRows
+    returnIndex = currentPage * numRows + 1
+
+    rowsPerPage.innerHTML = `${returnIndex}  - ${displayRows.length-numRows+numOfRowsPerPage} of ${customersNameSorted.length}`;
+};
 
 inputSearch.addEventListener('keyup', () => renderCustomers(customersData));
 
@@ -417,28 +358,39 @@ sortByStatus.addEventListener('click', () => {
 });
 
 nextPage.addEventListener('click', () => {
-    if ((currentPage + 1) < customersData.length / (numRows)) {
-        currentPage += 1;
+    let numPage = Math.ceil(customersData.length / numRows)
+    if (numPage > currentPage + 1) {
+        if (numPage != 0) {
+            currentPage++;
+        }
     }
     renderCustomers(customersData)
 });
 
 previousPage.addEventListener('click', () => {
-    if (currentPage !== 0) {
-        currentPage -= 1;
+    if (currentPage != 0) {
+        currentPage--;
     }
     renderCustomers(customersData)
 });
 
 displayed.addEventListener('click', () => {
-    form.style.display = "flex"
+    inputFields.forEach(field => field.classList.remove("error-message"));
+    inputFields.forEach(field => field.classList.add("fieldInput"));
+    inputFields.forEach(field => field.classList.remove("validate"));
+    inputFields.forEach(field => field.value = "");
+    inputFields.forEach(field => field.nextElementSibling.innerText = "");
     fieldName.focus()
+    groupBtn.style.gap = '44%'
     displayed.style.display = "none"
     submit.style.display = 'block'
-    update.style.display = "none"
-    document.querySelector('.group-btn').style.gap = '44%'
+    update.style.display = 'none'
+    cancelForUpdate.style.display = 'none'
+    cancel.style.display = 'block'
+    emptyBar();
 
 });
+
 creatProgressBar()
 
 cancel.addEventListener('click', () => {
@@ -447,31 +399,21 @@ cancel.addEventListener('click', () => {
     inputFields.forEach(field => field.classList.add("fieldInput"));
     inputFields.forEach(field => field.nextElementSibling.innerText = "");
     emptyBar();
-    setTimeout(function() {
-        form.style.display = "none"
-    }, 1200)
-    setTimeout(function() {
-        displayed.style.display = "flex"
-    }, 1210)
+    displayed.style.display = "flex"
 });
 
-let number = "^[0-9]+$";
-let string = "^[a-z A-Z]+$";
 
-function valid(input, index) {
+
+
+function valid(input) {
     input.nextElementSibling.innerText = ""
-    input.addEventListener("select", () => updateProgress(index));
-    input.addEventListener("blur", () => updateProgress(index));
-    input.addEventListener("input", () => updateProgress(index));
     input.classList.remove("error-message");
     input.classList.remove("fieldInput");
-    input.classList.add("validate");
+    input.classList.add("validate")
 };
 
-function validSelect(input, index) {
+function validSelect(input) {
     input.nextElementSibling.innerText = ""
-    input.addEventListener("click", () => updateProgress(index));
-    input.addEventListener("change", () => updateProgress(index));
     input.classList.remove("error-message");
     input.classList.remove("fieldInput");
     input.classList.add("validate");
@@ -505,8 +447,8 @@ function typeOfData(input, data, type) {
     input.classList.add("error-message");
 };
 
-function checkName(input, index) {
-    let existsName = customersData.some(customer => customer.name == input.value);
+function checkName(input, array = customersData) {
+    let existsName = array.some(customer => customer.name == input.value);
     if (input.value.trim() === "") {
         isRequired(input, "name");
     } else if (existsName) {
@@ -514,12 +456,12 @@ function checkName(input, index) {
     } else if (!input.value.match(string)) {
         typeOfData(input, "name", "string");
     } else {
-        valid(input, index)
+        valid(input)
     }
 };
 
-function checkId(input, index) {
-    let existsId = customersData.some(customer => customer.id == input.value);
+function checkId(input, array = customersData) {
+    let existsId = array.some(customer => customer.id == input.value);
     if (input.value.trim() === "") {
         isRequired(input, "id");
     } else if (!input.value.match(number)) {
@@ -529,63 +471,63 @@ function checkId(input, index) {
     } else if (existsId) {
         mustBeUnique(input, "id");
     } else {
-        valid(input, index);
+        valid(input);
     }
 };
 
-function checkDesc(input, index) {
+function checkDesc(input) {
     if (input.value.trim() === "") {
         isRequired(input, "description");
     } else if (input.value.length < 10) {
         lengthOfData(input, "descreption", "up to 10 charcters");
     } else {
-        valid(input, index);
+        valid(input);
     }
 };
 
-function checkRate(input, index) {
+function checkRate(input) {
     if (input.value.trim() === "") {
         isRequired(input, "Rate");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Rate", "number");
     } else {
-        valid(input, index);
+        valid(input);
     }
 };
 
-function checkBalance(input, index) {
+function checkBalance(input) {
     if (input.value.trim() === "") {
         isRequired(input, "Balance");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Balance", "number");
     } else {
-        valid(input, index);
+        valid(input);
     }
 };
 
-function checkDeposit(input, index) {
+function checkDeposit(input) {
     if (input.value.trim() === "") {
         isRequired(input, "Deposit");
     } else if (!input.value.match(number)) {
         typeOfData(input, "Deposit", "number");
     } else {
-        valid(input, index);
+        valid(input);
     }
 };
 
-function checkCurrency(input, index) {
+function checkCurrency(input) {
     if (input.value === "") {
         isRequired(input, "Currency");
     } else {
-        validSelect(input, index);
+        validSelect(input);
     }
 };
 
-function checkStatus(input, index) {
+function checkStatus(input) {
     if (input.value === "") {
         isRequired(input, "Status");
     } else {
-        validSelect(input, index);
+        validSelect(input);
     }
 };
 
@@ -598,6 +540,7 @@ function creatProgressBar() {
 };
 
 function updateProgress(i) {
+
     let validate = inputFields[i].classList.contains('validate')
     if (validate === true) {
         if (counterBox.includes(i) === false) {
@@ -610,6 +553,8 @@ function updateProgress(i) {
         }
     }
     myProgress()
+
+
 };
 
 const progressBar = document.getElementById("progress-bar");
@@ -620,71 +565,90 @@ function myProgress() {
     result = Math.round(result);
     progressBar.style.width = `${result}%`;
     value.textContent = `${result}%`
-}
+};
 
 function emptyBar() {
     counterBox = []
     myProgress()
-}
+};
 
-fieldName.addEventListener("input", () => checkName(fieldName, 0));
-fieldNumber.addEventListener("input", () => checkId(fieldNumber, 1));
-fieldDescription.addEventListener("input", () => checkDesc(fieldDescription, 2));
-fieldCurrency.addEventListener("change", () => checkCurrency(fieldCurrency, 3));
-fieldRate.addEventListener("input", () => checkRate(fieldRate, 4));
-fieldBalance.addEventListener("input", () => checkBalance(fieldBalance, 5));
-fieldDeposit.addEventListener("input", () => checkDeposit(fieldDeposit, 6));
-fieldStatus.addEventListener("change", () => checkStatus(fieldStatus, 7));
+fieldName.addEventListener("input", () => {
+    checkName(fieldName),
+        updateProgress(0)
+});
 
-let messageNotif = () => {
-    let notification = document.createElement('div');
-    notification.id = "notification"
-    notification.innerHTML = `<img src="./images/valid.png" alt="valid" width="20px" height="20px"">
-                            <strong class="message">Great</strong> <span class="message2">Customer created successfully.</span>`;
-    body.prepend(notification);
-    scroll(0, 500);
-    let row = document.querySelector('.customer-data');
-    row.classList.add('border');
+
+fieldNumber.addEventListener("input", () => {
+    checkId(fieldNumber),
+        updateProgress(1)
+});
+
+fieldDescription.addEventListener("input", () => {
+    checkDesc(fieldDescription),
+        updateProgress(2)
+});
+
+fieldCurrency.addEventListener("change", () => {
+    checkCurrency(fieldCurrency),
+        updateProgress(3)
+});
+
+fieldRate.addEventListener("input", () => {
+    checkRate(fieldRate),
+        updateProgress(4)
+});
+
+fieldBalance.addEventListener("input", () => {
+    checkBalance(fieldBalance),
+        updateProgress(5)
+});
+
+fieldDeposit.addEventListener("input", () => {
+    checkDeposit(fieldDeposit),
+        updateProgress(6)
+});
+
+fieldStatus.addEventListener("change", () => {
+    checkStatus(fieldStatus),
+        updateProgress(7)
+});
+
+function updatePro() {
+    updateProgress(0)
+    updateProgress(1)
+    updateProgress(2)
+    updateProgress(3)
+    updateProgress(4)
+    updateProgress(5)
+    updateProgress(6)
+    updateProgress(7)
+};
+
+function notifyMe(cause) {
+    let notification = document.createElement('div')
+    notification.id = 'notification'
+    notification.innerHTML = `<img src = "./images/valid.png" alt = "valid" width = "20px" height = "20px">
+<strong class="message">Great</strong><span class="message2">Customer ${cause} successfully.</span >`
+    body.append(notification)
     setTimeout(function() {
         notification.style.display = "none";
     }, 2500)
-
-    setTimeout(function() {
-            row.classList.remove('border')
-            setTimeout(function() {
-                row.classList.add('border')
-                setTimeout(function() {
-                    row.classList.remove('border')
-                    setTimeout(function() {
-                        row.classList.add('border')
-                        setTimeout(function() {
-                            row.classList.remove('border')
-                        }, 150)
-                    }, 150)
-                }, 150)
-            }, 150)
-        }, 200)
-        //form.style.display = 'none';
-        //displayed.style.display = 'flex'
 };
 
-function checkInputs() {
-    checkName(fieldName);
-    checkId(fieldNumber);
+function checkInputs(array) {
+    checkName(fieldName, array);
+    checkId(fieldNumber, array);
     checkDesc(fieldDescription);
     checkCurrency(fieldCurrency);
     checkRate(fieldRate);
     checkBalance(fieldBalance);
     checkDeposit(fieldDeposit);
     checkStatus(fieldStatus);
+};
 
-}
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    checkInputs();
-
-
-
+    checkInputs()
     if (inputFields.every(field => field.classList.contains("validate"))) {
         let myObj = {
             name: fieldName.value,
@@ -697,71 +661,173 @@ form.addEventListener('submit', (e) => {
             status: fieldStatus.value
         }
         customersData.unshift(myObj);
+        inputFields.forEach(field => field.classList.add("fieldInput"));
         inputFields.forEach(field => field.classList.remove("validate"));
         inputFields.forEach(field => field.value = "");
         renderCustomers(customersData);
         storeLocalStorage(customersData);
-        messageNotif();
+        scroll(0, 700);
+        notifyMe("submitted")
+        let numberOfNewCustomer = myObj.id
+        let allTr = Array.from(document.querySelectorAll('.customer-data'));
+        allTr.filter(tr => {
+            if (tr.id == numberOfNewCustomer) {
+                tr.classList.add('border');
+                setTimeout(function() {
+                    tr.classList.remove('border')
+                    setTimeout(function() {
+                        tr.classList.add('border')
+                        setTimeout(function() {
+                            tr.classList.remove('border')
+                            setTimeout(function() {
+                                tr.classList.add('border')
+                                setTimeout(function() {
+                                    tr.classList.remove('border')
+                                }, 150)
+                            }, 150)
+                        }, 150)
+                    }, 150)
+                }, 200)
+            }
+        })
         emptyBar()
     };
 });
 
-function sendsValuesToFields(row) {
-    fieldName.value = row.querySelector('.full-name').textContent;
-    fieldNumber.value = row.querySelector('.id').textContent;
-    fieldDescription.value = row.querySelector('.spanDescription').textContent;
-    fieldRate.value = Number(row.querySelector('.spanPrice').textContent).toFixed(0);
-    fieldCurrency.value = row.querySelector('.spanCurrency').textContent;
-    fieldBalance.value = Number(row.querySelector('.balance-value').textContent).toFixed(0);
-    fieldDeposit.value = Number(row.querySelector('.spanDeposit').textContent).toFixed(0);
-    fieldStatus.value = row.querySelector('.cta-inactive-active').textContent;
-    checkName(fieldName, 0);
-    checkId(fieldNumber, 1);
-    checkDesc(fieldDescription, 2);
-    checkCurrency(fieldCurrency, 3);
-    checkRate(fieldRate, 4);
-    checkBalance(fieldBalance, 5);
-    checkDeposit(fieldDeposit, 6);
-    checkStatus(fieldStatus, 7);
-}
+function sendsValuesToFields(dataOfCustomerToEdit, array) {
+    let balance = dataOfCustomerToEdit.balance
+    let rate = dataOfCustomerToEdit.rate
+    let deposit = dataOfCustomerToEdit.deposit
+    fieldName.value = dataOfCustomerToEdit.name;
+    fieldNumber.value = dataOfCustomerToEdit.id;
+    fieldDescription.value = dataOfCustomerToEdit.description;
+    fieldRate.value = Number(rate).toFixed(0);
+    fieldCurrency.value = dataOfCustomerToEdit.currency;
+    //fieldBalance.value = Math.abs(Number(balance).toFixed(0));
+    fieldBalance.value = Number(balance).toFixed(0);
+    fieldDeposit.value = Number(deposit).toFixed(0);
+    fieldStatus.value = dataOfCustomerToEdit.status;
+    checkInputs(array)
+    fieldName.addEventListener("input", () => {
+        checkName(fieldName, array),
+            updateProgress(0)
+    });
+
+    fieldNumber.addEventListener("input", () => {
+        checkId(fieldNumber, array),
+            updateProgress(1)
+    });
+
+    updatePro()
+};
+
 tbody.addEventListener('click', (e) => {
-    if (e.target.className === "edit")
+    let btnEdit = e.target
+    if (btnEdit.id === "edit") {
         if (confirm("Do you want to edit the customer !!")) {
-
-            form.style.display = "flex"
-            fieldName.focus()
-            displayed.style.display = "none"
             submit.style.display = 'none'
-            update.style.display = "block"
-            document.querySelector('.group-btn').style.gap = '44%'
-            let rowToEdit = e.target.closest("tr")
-            sendsValuesToFields(rowToEdit)
-            if (inputFields.every(field => field.classList.contains("validate"))) {
-                let myObj = {
-                        name: fieldName.value,
-                        id: Number(fieldNumber.value),
-                        description: fieldDescription.value,
-                        currency: fieldCurrency.value,
-                        rate: Number(fieldRate.value).toFixed(2),
-                        deposit: Number(fieldDeposit.value).toFixed(2),
-                        balance: Number(fieldBalance.value).toFixed(2),
-                        status: fieldStatus.value
-                    }
-                    // customersData.unshift(myObj);
-                    // inputFields.forEach(field => field.classList.remove("validate"));
-                    // inputFields.forEach(field => field.value = "");
-                    // renderCustomers(customersData);
-                    // storeLocalStorage(customersData);
+            update.style.display = 'block'
+            displayed.style.display = "block"
+            fieldName.focus()
+            cancel.style.display = "none"
+            cancelForUpdate.style.display = "block"
+            let rowToEdit = btnEdit.closest("tr");
 
-
-            }
-            console.log(rowToEdit)
-
+            customerToEdit = customersData.filter(customer => customer.id == rowToEdit.id);
+            let copyOf = customersData.slice()
+            let restOfcustomers = copyOf.filter(customer => customer.id != rowToEdit.id);
+            inbexOfEditCustomer = customersData.indexOf(customerToEdit[0]);
+            sendsValuesToFields(customerToEdit[0], restOfcustomers)
+            renderCustomers(customersData)
+            storeLocalStorage(customersData);
         }
+    }
+});
 
+cancelForUpdate.addEventListener('click', () => {
+    inputFields.forEach(field => field.classList.remove("validate"));
+    inputFields.forEach(field => field.value = "");
+    inputFields.forEach(field => field.classList.remove("error-message"));
+    inputFields.forEach(field => field.classList.add("fieldInput"));
+    inputFields.forEach(field => field.nextElementSibling.innerText = "");
+    scroll(0, 500);
+    notifyMe("canceled updating");
+    let notAllTr = tbody.querySelectorAll('.customer-data');
+    notAllTr[inbexOfEditCustomer].classList.add('border');
+    setTimeout(function() {
+        notAllTr[inbexOfEditCustomer].classList.remove('border');
+        setTimeout(function() {
+            notAllTr[inbexOfEditCustomer].classList.add('border');
+            setTimeout(function() {
+                notAllTr[inbexOfEditCustomer].classList.remove('border');
+                setTimeout(function() {
+                    notAllTr[inbexOfEditCustomer].classList.add('border');
+                    setTimeout(function() {
+                        notAllTr[inbexOfEditCustomer].classList.remove('border');
+                    }, 150);
+                }, 150);
+            }, 150);
+        }, 150);
+    }, 200);
+    emptyBar();
+    cancel.style.display = "block";
+    cancelForUpdate.style.display = "none";
+    submit.style.display = 'block';
+    update.style.display = 'none';
+});
 
-})
+update.addEventListener('click', () => {
+    if (inputFields.every(field => field.classList.contains("validate"))) {
+        let myObj = {
+            name: fieldName.value,
+            id: Number(fieldNumber.value),
+            description: fieldDescription.value,
+            currency: fieldCurrency.value,
+            rate: Number(fieldRate.value).toFixed(2),
+            deposit: Number(fieldDeposit.value).toFixed(2),
+            balance: Number(fieldBalance.value).toFixed(2),
+            status: fieldStatus.value
+        }
+        customersData.splice(inbexOfEditCustomer, 1, myObj)
+        renderCustomers(customersData);
+        storeLocalStorage(customersData);
+        inputFields.forEach(field => field.classList.remove("validate"));
+        inputFields.forEach(field => field.value = "");
+        inputFields.forEach(field => field.classList.remove("error-message"));
+        inputFields.forEach(field => field.classList.add("fieldInput"));
+        inputFields.forEach(field => field.nextElementSibling.innerText = "");
+        scroll(0, 500);
+        notifyMe("updated")
+        let allTrUpdate = Array.from(tbody.querySelectorAll('.customer-data'))
+        allTrUpdate.filter(tr => {
+            if (allTrUpdate.indexOf(tr) == inbexOfEditCustomer || tr.id == customerToEdit[0].id) {
+                tr.classList.add('border');
+                setTimeout(function() {
+                    tr.classList.remove('border')
+                    setTimeout(function() {
+                        tr.classList.add('border')
+                        setTimeout(function() {
+                            tr.classList.remove('border')
+                            setTimeout(function() {
+                                tr.classList.add('border')
+                                setTimeout(function() {
+                                    tr.classList.remove('border')
+                                }, 150)
+                            }, 150)
+                        }, 150)
+                    }, 150)
+                }, 200)
+            }
+        })
+        emptyBar()
+        displayed.style.display = "flex"
+        cancel.style.display = "block"
+        cancelForUpdate.style.display = "none"
+        submit.style.display = 'block'
+        update.style.display = 'none'
+    };
 
+});
 
 function storeLocalStorage(arr) {
     localStorage.setItem('boxStorage', JSON.stringify(arr));
@@ -771,29 +837,112 @@ function getLocalStorage() {
     if (localStorage.getItem('boxStorage') !== null) {
         customersData = JSON.parse(localStorage.getItem('boxStorage'))
     }
-    renderCustomers(customersData);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 renderCustomers(customersData);
+
+let trChecks = document.querySelectorAll('.customer-data');
+let hidden = document.querySelector('.hidden');
+let divOfSearch = document.querySelector('.search-header')
+let trBackground = document.querySelectorAll('.customer-data1');
+let checkBox = document.getElementById('checkbox')
+
+tbody.addEventListener('click', (e) => {
+    if (e.target.classList == 'check') {
+        let trChecks = Array.from(document.querySelectorAll('.customer-data'));
+        let trOfCheck = e.target.closest('tr')
+        customersData.forEach(customer => {
+            if (customer.id == trOfCheck.id) {
+                trOfCheck.classList.remove('customer-data1')
+                trOfCheck.classList.add('checked');
+                hidden.classList.add('printAndDelete');
+            }
+            if (e.target.checked == false) {
+                trOfCheck.classList.add('customer-data1')
+                trOfCheck.classList.remove('checked')
+                if (trChecks.every(tr => tr.classList.contains('customer-data1'))) {
+                    hidden.classList.remove('printAndDelete');
+                    checkBox.checked = false
+                }
+            }
+            if (trChecks.every(tr => tr.classList.contains('checked'))) {
+                checkBox.checked = true
+            }
+            if (trChecks.some(tr => tr.classList.contains('customer-data1'))) {
+                checkBox.checked = false
+            }
+        })
+
+    }
+});
+
+
+checkBox.addEventListener('click', () => {
+    let checks = Array.from(document.querySelectorAll('.check'));
+    let trChecks = Array.from(document.querySelectorAll('.customer-data'));
+    if (checkBox.checked == true) {
+        checks.forEach(check => check.checked = true)
+        trChecks.forEach(tr => {
+            tr.classList.remove('customer-data1');
+            tr.classList.add('checked');
+            hidden.classList.add('printAndDelete');
+
+        })
+    }
+    if (checkBox.checked == false) {
+        checks.forEach(check => check.checked = false)
+        trChecks.forEach(tr => {
+            tr.classList.add('customer-data1');
+            tr.classList.remove('checked');
+            hidden.classList.remove('printAndDelete');
+
+        })
+    }
+
+})
+
+body.addEventListener('click', (e) => {
+    if (e.target.id == 'deleteAll') {
+        checkBox.checked = false;
+        let checks = Array.from(document.querySelectorAll('.check'));
+        checks.forEach(check => {
+            if (check.checked == true) {
+                customersData.forEach(customer => {
+                    if (check.id == customer.id) {
+                        let indexCheck = customersData.indexOf(customer)
+                        if (confirm('Are you sure to remove the selected customers?')) {
+                            customersData.splice(indexCheck, 1);
+                        }
+                        hidden.classList.remove('printAndDelete');
+                        renderCustomers(customersData)
+                        storeLocalStorage(customersData)
+                    }
+                })
+            }
+        })
+    }
+
+})
+
+
+let trPrint = [];
+let customersToPrint = []
+body.addEventListener('click', (e) => {
+    if (e.target.id == 'printAll') {
+        let checks = Array.from(document.querySelectorAll('.check'));
+        checks.forEach(check => {
+            if (check.checked == true) {
+                trPrint.push(check.closest('tr'));
+                console.log(trPrint);
+                customersData.forEach(customer => {
+                    if (check.id == customer.id) {
+                        if (check.id == customer.id) {
+                            customersToPrint.push(customer)
+                            console.log(customersToPrint)
+                        }
+
+                    }
+                })
+            }
+        })
+    }
+})

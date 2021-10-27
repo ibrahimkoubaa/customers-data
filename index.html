@@ -9,41 +9,66 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
     <title>customer data</title>
 </head>
 
 <body id="body">
+
     <div class="aline">
-        <span id="displayed">Add Customer <img src="./images/add-icon.png" alt="" width="20px" height="20px"></span>
+        <span id="displayed">Add Customer <img src="./images/add-icon.png"  width="20px" height="20px"></span>
         <form id="form">
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Name" id="nameCustomer" />
-                <small class="error"></small></div>
+                <small class="error"></small>
+                <i style="display: none;" class="fas fa-exclamation-circle failure-icon"></i>
+                <i style="display: none;" class="far fa-check-circle success-icon"></i>
+            </div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Number" id="numberCustomer" />
-                <small class="error"></small></div>
+                <small class="error"></small>
+                <i style="display: none;" class="fas fa-exclamation-circle failure-icon"></i>
+                <i style="display: none;" class="far fa-check-circle success-icon"></i>
+            </div>
             <div class="field"><textarea type="text" class="fieldInput" id="descriptionCustomer" placeholder="Description about customer"></textarea>
-                <small class="error"></small></div>
+                <small class="error"></small>
+                <i style="display: none;" class="fas fa-exclamation-circle failure-icon"></i>
+                <i style="display: none;" class="far fa-check-circle success-icon"></i>
+            </div>
             <div class="field">
                 <select class="select fieldInput" id="currencyCustomer">
                     <option value="" selected disabled hidden>Currency</option>
-                    <option value="EUR">INR</option>
-                    <option value="INR">EUR</option>
+                    <option value="INR">INR</option>
+                    <option value="EUR">EUR</option>
                     <option value="USD">USD</option>
                 </select>
                 <small class="error"></small>
+                <i style="display: none;" class="fas fa-exclamation-circle failure-icon"></i>
+                <i style="display: none;" class="far fa-check-circle success-icon"></i>
             </div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Rate" id="rateCustomer" />
-                <small class="error"></small></div>
+                <small class="error"></small>
+                <i style="display: none;" class="fas fa-exclamation-circle failure-icon"></i>
+                <i style="display: none;" class="far fa-check-circle success-icon"></i>
+            </div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer Balance" id="balanceCustomer" />
-                <small class="error"></small></div>
+                <small class="error"></small>
+                <i style="display: none;" class="fas fa-exclamation-circle failure-icon"></i>
+                <i style="display: none;" class="far fa-check-circle success-icon"></i>
+            </div>
             <div class="field"><input type="text" class="fieldInput" placeholder="Customer deposit" id="depositCustomer" />
-                <small class="error"></small></div>
+                <small class="error"></small>
+                <i style="display: none;" class="fas fa-exclamation-circle failure-icon"></i>
+                <i style="display: none;" class="far fa-check-circle success-icon"></i>
+            </div>
             <div class="field"><select class="select fieldInput" id="statusCustomer">
                 <option value="" selected disabled hidden>Status</option>
                 <option value="active">active</option>
                 <option value="inactive">inactive</option>
                 </select>
-                <small class="error"></small></div>
-            <div class="group-btn"><input id="submit" value="Submit" type="submit"><input id="update" value="update" type="submit"><input id="cancel" value="Cancel" type="button"></div>
+                <small class="error"></small>
+                <i style="display: none;" class="fas fa-exclamation-circle failure-icon "></i>
+                <i style="display: none;" class="far fa-check-circle success-icon "></i>
+            </div>
+            <div class="group-btn"><button id="submit">Submit</button><input id="update" value="update" type="button"><input id="cancel" value="Cancel" type="button" name="cancel"><input id="cancel2" value="Cancel" type="button" name="cancel2"></div>
         </form>
     </div>
 
@@ -51,6 +76,7 @@
         <div class="search-header">
             <input class="field-search" type="text" name="search" id="search" placeholder="Search" />
             <div class="icon-search"></div>
+            <div class="hidden"><img src="./images/deleteall.png" width="30px" height="30px" id="deleteAll"><img src="./images/print.png" width="30px" height="30px" id="printAll"></div>
         </div>
         <table id="table">
             <thead>

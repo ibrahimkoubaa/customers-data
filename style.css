@@ -11,6 +11,11 @@ body {
     position: relative;
 }
 
+.checked {
+    background-color: #a7ace6;
+    border-left: solid 3px #0b0ec3;
+}
+
 #displayed {
     font-weight: 700;
     font-size: 20px;
@@ -41,6 +46,7 @@ body {
     font-size: 14px;
     line-height: 17px;
     border: 1px solid #17ad03;
+    outline: none;
 }
 
 .border {
@@ -48,17 +54,17 @@ body {
     box-shadow: -1px -1px 4px 3px #17ad03;
 }
 
-;
 #notification {
+    box-shadow: 1px 0px 15px 6px rgba(0, 0, 0, 0.62);
     position: absolute;
-    width: 33%;
-    top: 72%;
-    height: 16%;
-    right: 34%;
+    display: flex;
+    width: 28%;
+    top: 89%;
+    height: 11%;
+    left: 72%;
     background: #c1b1a9;
     padding: 30px 9px;
     border: 11px #5b5555 solid;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -82,7 +88,7 @@ body {
 
 .group-btn {
     display: flex;
-    gap: 8%;
+    gap: 44%;
 }
 
 .group-btn-table {
@@ -103,6 +109,19 @@ body {
     padding: 10px 16px;
 }
 
+#cancel2 {
+    font-size: 14px;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    background: #3d3a3a;
+    color: #ffffff;
+    border: 1px solid #606F89;
+    border-radius: 11px;
+    padding: 10px 16px;
+    display: none;
+}
+
 #update {
     font-size: 14px;
     line-height: 12px;
@@ -113,13 +132,17 @@ body {
     border: 1px solid #606F89;
     border-radius: 11px;
     padding: 10px 16px;
+    display: none;
 }
 
 #form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    display: none;
+    padding: 10px;
+    border-radius: 22px;
+    border: 3px solid;
+    margin-top: 10px;
 }
 
 .main {
@@ -158,6 +181,10 @@ body {
     padding: 11px 40px;
 }
 
+.block {
+    display: block;
+}
+
 .field {
     display: flex;
     flex-direction: column;
@@ -168,7 +195,7 @@ label {
 }
 
 .error {
-    font-size: small;
+    font-size: 12px;
     color: #f12d0b;
     padding: 4px 0 0 4px;
 }
@@ -182,6 +209,7 @@ label {
     font-size: 14px;
     line-height: 17px;
     border: 1px solid #f80b0b;
+    outline: none;
 }
 
 .field-search,
@@ -194,6 +222,7 @@ label {
     font-size: 14px;
     line-height: 17px;
     border: none;
+    outline: none;
 }
 
 .select {
@@ -201,7 +230,7 @@ label {
     background-color: #DAE1EC;
     border-radius: 4px;
     width: min-content;
-    color: #2E3B52;
+    color: #2e3b52a8;
     font-size: 14px;
     line-height: 17px;
 }
@@ -217,16 +246,38 @@ table {
     width: 100%;
 }
 
+#table2 {
+    width: 100%;
+    border: solid 1px;
+}
+
 .checkbox {
     padding-left: 30px;
 }
 
 .description {
-    width: 18%
+    width: 260px
 }
 
-tr:nth-child(even) {
+.customer-data1:nth-child(even) {
     background-color: #F4F7FC;
+}
+
+.hidden {
+    display: none;
+}
+
+i {
+    position: absolute;
+    padding: 10px 10px 10px 17em;
+    display: none;
+}
+
+.printAndDelete {
+    gap: 10px;
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
 }
 
 td {
@@ -326,13 +377,6 @@ td {
 
 .balance {
     color: #606F89;
-}
-
-.customer-data1 {
-    font-size: 14px;
-    line-height: 17px;
-    color: #2E3B52;
-    background-color: #F4F7FC;
 }
 
 .cta-active {
