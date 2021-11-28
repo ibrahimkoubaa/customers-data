@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="table.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
+    <title>table of customres data</title>
+</head>
+
+<body id="body">
+    <div id="boxSort">
+        <label class="label-sort">Sorting customres</label>
+        <div class="sort-name">
+            <span class="full-name">By name :</span>
+            <div class="justify">
+                <span class="span-sort">Default</span>
+                <input type="radio" name="Default1" id="defaultname" checked>
+            </div>
+            <div class="justify">
+                <span class="span-sort">A-Z</span>
+                <input type="radio" name="Ascending" id="ascending">
+            </div>
+            <div class="justify">
+                <span class="span-sort">Z-A</span>
+                <input type="radio" name="Descending" id="descending">
+            </div>
+        </div>
+        <div class="sort-status">
+            <span class="full-name">By status :</span>
+            <div class="justify">
+                <span class="span-sort">Default</span>
+                <input type="radio" name="Default2" id="defaultstatus" checked>
+            </div>
+            <div class="justify">
+                <span class="span-sort">Active</span>
+                <input type="radio" name="Active" id="active">
+            </div>
+            <div class="justify">
+
+                <span class="span-sort">Inactive</span>
+                <input type="radio" name="Inactive" id="inactive">
+            </div>
+
+
+        </div>
+    </div>
+    <div class="main">
+        <span id="displayed">Add Customer<img src="./images/add-icon.png"  width="20px" height="20px"></span>
+        <div class="search-header">
+            <div class="cercles">
+                <img src="./images/filter.png" width="30px" height="30px" id="filterIcon">
+
+
+
+                <div>
+                    <input class="field-search" type="text" name="search" id="search" placeholder="Search" />
+                    <div class="icon-search"></div>
+                </div>
+            </div>
+            <div class="hidden">
+                <img src="./images/deleteall.png" width="30px" height="30px" id="deleteAll">
+                <img src="./images/print.png" width="30px" height="30px" id="printAll">
+            </div>
+        </div>
+        <table id="table">
+            <thead>
+                <tr id="row-header" class="row-header">
+                    <td class="checkbox"><input type="checkbox" id="checkbox"></td>
+                    <td class="name">
+                        <div id="sort-name">
+                            <span id="name">NAME</span>
+                            <div id="group-name" class="group-cta">
+                                <div id="arrow-top"></div>
+                                <div id="arrow-bottom"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="description">DESCRIPTION</td>
+                    <td class="rate">RATE</td>
+                    <td class="balance">BALANCE</td>
+                    <td class="deposoit">DEPOSIT</td>
+                    <td class="staus">
+                        <div id="sort-status">
+                            <span id="status">STATUS</span>
+                            <div class="group-cta" id="group-cta-status">
+                                <div id="arrow-top-status"></div>
+                                <div id="arrow-bottom-status"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="delete">
+                        <div class="cercles">
+                            <div class="cercle"></div>
+                            <div class="cercle"></div>
+                            <div class="cercle"></div>
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="contentOfTable">
+            </tbody>
+        </table>
+        <footer>
+            <div class="left-footer">
+                <span>active customers: 
+                    <span id="active-customers" style="font-weight: bold;"></span>
+                <span id="length"></span>
+                </span>
+            </div>
+            <div class="right-footer">
+                <div class="selection-row">
+                    <label for="rows-select">Rows per page:</label>
+                    <select name="custumer" id="rows-select" style="border: none;">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+                <span id="rows-page"></span>
+                <div class="group-btn-table">
+                    <button><div id="arrow-left"></div></button>
+                    <button><div id="arrow-right"></div></button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+<script src="./table.js"></script>
+
+</html>

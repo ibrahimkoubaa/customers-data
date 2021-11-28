@@ -68,19 +68,72 @@
                 <i style="display: none;" class="fas fa-exclamation-circle failure-icon "></i>
                 <i style="display: none;" class="far fa-check-circle success-icon "></i>
             </div>
-            <div class="group-btn"><button id="submit">Submit</button><input id="update" value="update" type="button"><input id="cancel" value="Cancel" type="button" name="cancel"><input id="cancel2" value="Cancel" type="button" name="cancel2"></div>
+            <div class="group-btn"><button id="submit">Submit</button>
+                <input id="update" value="Update" type="button">
+                <input id="submit2" value="Submit" type="button">
+                <input id="duplicate" value="Duplicate" type="button">
+                <input id="cancel" value="Cancel" type="button" name="cancel">
+                <input id="cancel2" value="Cancel" type="button" name="cancel2"></div>
         </form>
     </div>
-
     <div class="main">
+
         <div class="search-header">
-            <input class="field-search" type="text" name="search" id="search" placeholder="Search" />
-            <div class="icon-search"></div>
-            <div class="hidden"><img src="./images/deleteall.png" width="30px" height="30px" id="deleteAll"><img src="./images/print.png" width="30px" height="30px" id="printAll"></div>
+            <div class="cercles">
+
+                <img src="./images/filter.png" width="30px" height="30px" id="filterIcon">
+                <div id="boxSort">
+                    <label class="label-sort">Sorting customres</label>
+                    <div class="sort-name">
+                        <span class="full-name">By name :</span>
+                        <div class="justify">
+                            <span class="span-sort">Default</span>
+                            <input type="radio" name="Default1" id="defaultname" checked>
+                        </div>
+                        <div class="justify">
+                            <span class="span-sort">A-Z</span>
+                            <input type="radio" name="Ascending" id="ascending">
+                        </div>
+                        <div class="justify">
+                            <span class="span-sort">Z-A</span>
+                            <input type="radio" name="Descending" id="descending">
+                        </div>
+                    </div>
+                    <div class="sort-status">
+                        <span class="full-name">By status :</span>
+                        <div class="justify">
+                            <span class="span-sort">Default</span>
+                            <input type="radio" name="Default2" id="defaultstatus" checked>
+                        </div>
+                        <div class="justify">
+                            <span class="span-sort">Active</span>
+                            <input type="radio" name="Active" id="active">
+                        </div>
+                        <div class="justify">
+
+                            <span class="span-sort">Inactive</span>
+                            <input type="radio" name="Inactive" id="inactive">
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div>
+                    <input class="field-search" type="text" name="search" id="search" placeholder="Search" />
+                    <div class="icon-search"></div>
+                </div>
+            </div>
+            <div class="hidden">
+                <img src="./images/deleteall.png" width="30px" height="30px" id="deleteAll">
+                <img src="./images/print.png" width="30px" height="30px" id="printAll">
+            </div>
         </div>
+
         <table id="table">
             <thead>
-                <tr id="row-header">
+                <tr id="row-header" class="row-header">
                     <td class="checkbox"><input type="checkbox" id="checkbox"></td>
                     <td class="name">
                         <div id="sort-name">
@@ -144,6 +197,7 @@
         </footer>
 
     </div>
+
 </body>
 <script src="./script.js"></script>
 
